@@ -4,8 +4,8 @@ import * as cc from './conventionalcommit'
 
 async function run(): Promise<void> {
   try {
-    const gh_token = core.getInput('GITHUB_TOKEN');
-    const octokit = github.getOctokit("gh_token");
+    const gh_token = core.getInput('token');
+    const octokit = github.getOctokit(gh_token);
 
     const { data: commit_list } = await octokit.rest.pulls.listCommits({
       owner: github.context.repo.owner,
