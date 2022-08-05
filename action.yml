@@ -1,11 +1,42 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "conventional commits"
+description: |
+  Check if commits of a PR match against the conventional commits specification.
+  See: https://conventionalcommits.org/
+author: "taskmedia"
 inputs:
-  milliseconds: # change this
+  token:
+    description: "token to access GitHub API to receive PR commits. Can be passed in using ${{ secrets.GITHUB_TOKEN }}"
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+outputs:
+  breaking_commit:
+    description: "indicates if a breaking commit was found"
+  breaking_msg:
+    description: "returns the breaking message of the last breaking commit"
+  commits:
+    description: |
+      JSON list of commits in PR.
+
+      Format example:
+      ```json
+        [
+          {
+            "invalid": false,
+            "full": "fix(app)!: changed something\n\nThis is a big change\r\n\r\nBREAKING CHANGE: API changed",
+            "type": "fix",
+            "breaking": true,
+            "scope": "app",
+            "message": "changed something",
+            "body": "This is a big change",
+            "breaking_change": "API changed"
+          }
+        ]
+      ```
+  count_commits:
+    description: "count of commits in PR"
+  invalid_commits:
+    description: "indicates if this commit does not match with conventional commits (other values might be empty)"
+  version_type:
+    description: "semantic versioning indicator (patch, minor or major)"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
