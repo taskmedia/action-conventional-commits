@@ -16,11 +16,11 @@ async function run(): Promise<void> {
     let hasInvalidCommits: boolean = false;
     let versionType: string = "patch";
     let hasBreakingCommit: boolean = false;
+    let breaking_msg: string = "";
 
     let commits: Array<cc.conventionalcommit> = [];
 
     for (const c of commit_list) {
-      // console.log(commit.commit.message);
       let commit = cc.checkCommit(c.commit.message);
 
       if (commit.invalid) {
@@ -33,6 +33,7 @@ async function run(): Promise<void> {
       if (commit.breaking) {
         hasBreakingCommit = true;
         versionType = "major";
+        breaking_msg = commit.breaking_change;
       }
 
       if (commit.type == "feat" && versionType != "major") {
@@ -43,6 +44,7 @@ async function run(): Promise<void> {
     }
 
     core.setOutput("breaking_commit", hasBreakingCommit);
+    core.setOutput("breaking_msg", breaking_msg);
     core.setOutput("commits", JSON.stringify(commits));
     core.setOutput("count_commits", commits.length);
     core.setOutput("invalid_commits", hasInvalidCommits);
