@@ -23,7 +23,7 @@ See: https://conventionalcommits.org/
   with:
     # token to access GitHub API to receive PR commits. Can be passed in using ${{
     # secrets.GITHUB_TOKEN }}
-    token: ''
+    token: ""
 ```
 
 <!-- end usage -->
@@ -41,6 +41,15 @@ See: https://conventionalcommits.org/
 # Outputs
 
 <!-- start outputs -->
+
+| **Output**        | **Description**                                                                                 | **Default** | **Required** |
+| :---------------- | :---------------------------------------------------------------------------------------------- | ----------- | ------------ |
+| `breaking_commit` | indicates if a breaking commit was found                                                        |             |              |
+| `breaking_msg`    | returns the breaking message of the last breaking commit                                        |             |              |
+| `commits`         | JSON list of commits in PR                                                                      |             |              |
+| `count_commits`   | count of commits in PR                                                                          |             |              |
+| `invalid_commits` | indicates if this commit does not match with conventional commits (other values might be empty) |             |              |
+| `version_type`    | semantic versioning indicator (patch, minor or major)                                           |             |              |
 
 <!-- end outputs -->
 
