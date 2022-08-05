@@ -39,7 +39,7 @@ const regex_conventionalcommit = new RegExp(`^(?:(?<type>(fix|feat|revert))(?:\\
     `(?<body>[\\S\\s]+)?$`);
 const regex_conventionalcommit_breaking_change = new RegExp(`(?<body>[\\s\\S]*)?BREAKING CHANGE: (?<breakingchange>[\\s\\S]*)`);
 function checkCommit(commit_msg) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
     let c = new conventionalcommit();
     c.full = commit_msg;
     let result = regex_conventionalcommit.exec(commit_msg);
@@ -50,24 +50,23 @@ function checkCommit(commit_msg) {
     if (((_a = result === null || result === void 0 ? void 0 : result.groups) === null || _a === void 0 ? void 0 : _a.type) != undefined) {
         c.type = String((_b = result === null || result === void 0 ? void 0 : result.groups) === null || _b === void 0 ? void 0 : _b.type).trim();
     }
-    console.log((_c = result === null || result === void 0 ? void 0 : result.groups) === null || _c === void 0 ? void 0 : _c.breaking);
-    if (((_d = result === null || result === void 0 ? void 0 : result.groups) === null || _d === void 0 ? void 0 : _d.breaking) != "") {
+    if (((_c = result === null || result === void 0 ? void 0 : result.groups) === null || _c === void 0 ? void 0 : _c.breaking) != "") {
         c.breaking = true;
     }
-    if (((_e = result === null || result === void 0 ? void 0 : result.groups) === null || _e === void 0 ? void 0 : _e.scope) != undefined) {
-        c.scope = String((_f = result === null || result === void 0 ? void 0 : result.groups) === null || _f === void 0 ? void 0 : _f.scope).trim();
+    if (((_d = result === null || result === void 0 ? void 0 : result.groups) === null || _d === void 0 ? void 0 : _d.scope) != undefined) {
+        c.scope = String((_e = result === null || result === void 0 ? void 0 : result.groups) === null || _e === void 0 ? void 0 : _e.scope).trim();
     }
-    if (((_g = result === null || result === void 0 ? void 0 : result.groups) === null || _g === void 0 ? void 0 : _g.message) != undefined) {
-        c.message = String((_h = result === null || result === void 0 ? void 0 : result.groups) === null || _h === void 0 ? void 0 : _h.message).trim();
+    if (((_f = result === null || result === void 0 ? void 0 : result.groups) === null || _f === void 0 ? void 0 : _f.message) != undefined) {
+        c.message = String((_g = result === null || result === void 0 ? void 0 : result.groups) === null || _g === void 0 ? void 0 : _g.message).trim();
     }
-    if (((_j = result === null || result === void 0 ? void 0 : result.groups) === null || _j === void 0 ? void 0 : _j.body) != undefined) {
-        c.body = String((_k = result === null || result === void 0 ? void 0 : result.groups) === null || _k === void 0 ? void 0 : _k.body).trim();
+    if (((_h = result === null || result === void 0 ? void 0 : result.groups) === null || _h === void 0 ? void 0 : _h.body) != undefined) {
+        c.body = String((_j = result === null || result === void 0 ? void 0 : result.groups) === null || _j === void 0 ? void 0 : _j.body).trim();
     }
     if (c.body.includes("BREAKING CHANGE:")) {
         c.breaking = true;
         let result_breaking_change = regex_conventionalcommit_breaking_change.exec(c.body);
-        c.body = String((_l = result_breaking_change === null || result_breaking_change === void 0 ? void 0 : result_breaking_change.groups) === null || _l === void 0 ? void 0 : _l.body).trim();
-        c.breaking_change = String((_m = result_breaking_change === null || result_breaking_change === void 0 ? void 0 : result_breaking_change.groups) === null || _m === void 0 ? void 0 : _m.breakingchange).trim();
+        c.body = String((_k = result_breaking_change === null || result_breaking_change === void 0 ? void 0 : result_breaking_change.groups) === null || _k === void 0 ? void 0 : _k.body).trim();
+        c.breaking_change = String((_l = result_breaking_change === null || result_breaking_change === void 0 ? void 0 : result_breaking_change.groups) === null || _l === void 0 ? void 0 : _l.breakingchange).trim();
     }
     return c;
 }
@@ -116,25 +115,19 @@ const cc = __importStar(__nccwpck_require__(3305));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const gh_token = core.getInput('GITHUB_TOKEN');
-            const octokit = github.getOctokit("gh_token");
-            // const octokit = github.getOctokit("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");
+            const gh_token = core.getInput('token');
+            const octokit = github.getOctokit(gh_token);
             const { data: commit_list } = yield octokit.rest.pulls.listCommits({
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
                 pull_number: github.context.issue.number
             });
-            // const { data: commit_list } = await octokit.rest.pulls.listCommits({
-            //   owner: "mlechel",
-            //   repo: "action-conventional-commits",
-            //   pull_number: 1
-            // });
             let hasInvalidCommits = false;
             let versionType = "patch";
             let hasBreakingCommit = false;
+            let breaking_msg = "";
             let commits = [];
             for (const c of commit_list) {
-                // console.log(commit.commit.message);
                 let commit = cc.checkCommit(c.commit.message);
                 if (commit.invalid) {
                     hasInvalidCommits = true;
@@ -146,6 +139,7 @@ function run() {
                 if (commit.breaking) {
                     hasBreakingCommit = true;
                     versionType = "major";
+                    breaking_msg = commit.breaking_change;
                 }
                 if (commit.type == "feat" && versionType != "major") {
                     versionType = "minor";
@@ -153,6 +147,7 @@ function run() {
                 commits.push(commit);
             }
             core.setOutput("breaking_commit", hasBreakingCommit);
+            core.setOutput("breaking_msg", breaking_msg);
             core.setOutput("commits", JSON.stringify(commits));
             core.setOutput("count_commits", commits.length);
             core.setOutput("invalid_commits", hasInvalidCommits);
