@@ -100,3 +100,6 @@ lib/**/*
 
 # Ignore js files inside src
 src/*.js
+
+# Act
+act/local.secrets
