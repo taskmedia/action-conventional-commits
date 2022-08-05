@@ -3,17 +3,17 @@
 # `index.js` is the code that will run.
 # For our project, we generate this file through a build process from other source files.
 # We need to make sure the checked-in `index.js` actually matches what we expect it to be.
-name: Check dist/
+name: Check dist and run test
 
 on:
   push:
     branches:
       - main
     paths-ignore:
-      - '**.md'
+      - "**.md"
   pull_request:
     paths-ignore:
-      - '**.md'
+      - "**.md"
   workflow_dispatch:
 
 jobs:
@@ -35,6 +35,10 @@ jobs:
         run: |
           npm run build
           npm run package
+
+      - name: Run npm tests
+        run: |
+          npm test
 
       - name: Compare the expected and actual dist/ directories
         run: |
