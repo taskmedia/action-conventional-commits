@@ -1,0 +1,27 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  readme:
+    name: readme
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: bitflight-devops/github-action-readme-generator@v1.1.6
+        with:
+          pretty: "prettier"
+          title_prefix: "GitHub Action: "
+
+      - name: commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: autoupdated README"
+          file_pattern: README.md
