@@ -14,6 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          # use PAT because main branch is a protected branch
+          token: ${{ secrets.PAT }}
 
       - uses: bitflight-devops/github-action-readme-generator@v1.1.6
         with:
@@ -25,3 +28,4 @@ jobs:
         with:
           commit_message: "docs: autoupdated README"
           file_pattern: README.md
+          push_options: "--force"
