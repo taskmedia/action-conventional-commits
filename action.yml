@@ -1,4 +1,4 @@
-name: "conventional commits"
+name: "verify conventional commits"
 description: |
   Check if commits of a PR match against the conventional commits specification.
   See: https://conventionalcommits.org/
@@ -40,3 +40,6 @@ outputs:
 runs:
   using: "node16"
   main: "dist/index.js"
+branding:
+  icon: "git-pull-request"
+  color: "green"
