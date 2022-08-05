@@ -62,7 +62,6 @@ export function checkCommit(commit_msg: string): conventionalcommit {
     c.type = String(result?.groups?.type).trim();
   }
 
-  console.log(result?.groups?.breaking)
   if (result?.groups?.breaking != "") {
     c.breaking = true;
   }
