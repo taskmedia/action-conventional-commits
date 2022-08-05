@@ -1,16 +1,57 @@
+import * as github from '@actions/github'
 import * as core from '@actions/core'
-import {wait} from './wait'
+import * as cc from './conventionalcommit'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const gh_token = core.getInput('GITHUB_TOKEN');
+    const octokit = github.getOctokit("gh_token");
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const { data: commit_list } = await octokit.rest.pulls.listCommits({
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
+      pull_number: github.context.issue.number
+    });
 
-    core.setOutput('time', new Date().toTimeString())
+    let hasInvalidCommits: boolean = false;
+    let versionType: string = "patch";
+    let hasBreakingCommit: boolean = false;
+
+    let commits: Array<cc.conventionalcommit> = [];
+
+    for (const c of commit_list) {
+      // console.log(commit.commit.message);
+      let commit = cc.checkCommit(c.commit.message);
+
+      if (commit.invalid) {
+        hasInvalidCommits = true;
+        console.log("❌ "+ commit.full);
+      } else {
+        console.log("✅ "+ commit.getShortMessage());
+      }
+
+      if (commit.breaking) {
+        hasBreakingCommit = true;
+        versionType = "major";
+      }
+
+      if (commit.type == "feat" && versionType != "major") {
+        versionType = "minor";
+      }
+
+      commits.push(commit);
+    }
+
+    core.setOutput("breaking_commit", hasBreakingCommit);
+    core.setOutput("commits", JSON.stringify(commits));
+    core.setOutput("count_commits", commits.length);
+    core.setOutput("invalid_commits", hasInvalidCommits);
+    core.setOutput("version_type", versionType);
+
+    if (hasInvalidCommits) {
+      core.setFailed("at least one commit is invalid");
+    }
+
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
