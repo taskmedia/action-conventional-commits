@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: taskmedia/action-conventional-commits@v0.2.0
+      - uses: taskmedia/action-conventional-commits@v0.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
