@@ -13,24 +13,7 @@ outputs:
   breaking_msg:
     description: "returns the breaking message of the last breaking commit"
   commits:
-    description: |
-      JSON list of commits in PR.
-
-      Format example:
-      ```json
-        [
-          {
-            "invalid": false,
-            "full": "fix(app)!: changed something\n\nThis is a big change\r\n\r\nBREAKING CHANGE: API changed",
-            "type": "fix",
-            "breaking": true,
-            "scope": "app",
-            "message": "changed something",
-            "body": "This is a big change",
-            "breaking_change": "API changed"
-          }
-        ]
-      ```
+    description: "JSON list of commits in PR"
   count_commits:
     description: "count of commits in PR"
   invalid_commits:
