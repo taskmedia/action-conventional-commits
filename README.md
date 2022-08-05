@@ -21,7 +21,7 @@ See: https://conventionalcommits.org/
 ```yaml
 - uses: taskmedia/action-conventional-commits@main
   with:
-    # token to access GitHub API to receive PR commits. Can be passed in using ${{
+    # token to access GitHub API to receive PR commits. Can be passed in using {{
     # secrets.GITHUB_TOKEN }}
     token: ""
 ```
@@ -32,9 +32,9 @@ See: https://conventionalcommits.org/
 
 <!-- start inputs -->
 
-| **Input**   | **Description**                                                                                      | **Default** | **Required** |
-| :---------- | :--------------------------------------------------------------------------------------------------- | :---------: | :----------: |
-| **`token`** | token to access GitHub API to receive PR commits. Can be passed in using ${{ secrets.GITHUB_TOKEN }} |             |   **true**   |
+| **Input**   | **Description**                                                                                     | **Default** | **Required** |
+| :---------- | :-------------------------------------------------------------------------------------------------- | :---------: | :----------: |
+| **`token`** | token to access GitHub API to receive PR commits. Can be passed in using {{ secrets.GITHUB_TOKEN }} |             |   **true**   |
 
 <!-- end inputs -->
 
