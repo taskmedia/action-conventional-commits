@@ -38,16 +38,18 @@ export class conventionalcommit {
   }
 }
 
-const regex_conventionalcommit = new RegExp(
-  `^(?:(?<type>(fix|feat|revert))(?:\\((?<scope>.*)\\))?(?<breaking>!?): (?<message>.*)?)` +
-    `\\n?` +
-    `(?<body>[\\S\\s]+)?$`
-)
+
 const regex_conventionalcommit_breaking_change = new RegExp(
   `(?<body>[\\s\\S]*)?BREAKING CHANGE: (?<breakingchange>[\\s\\S]*)`
 )
 
-export function checkCommit(commit_msg: string): conventionalcommit {
+export function checkCommit(commit_msg: string, types: string): conventionalcommit {
+  const regex_conventionalcommit = new RegExp(
+  `^(?:(?<type>(${types}))(?:\\((?<scope>.*)\\))?(?<breaking>!?): (?<message>.*)?)` +
+    `\\n?` +
+    `(?<body>[\\S\\s]+)?$`
+  )
+
   const c = new conventionalcommit()
 
   c.full = commit_msg

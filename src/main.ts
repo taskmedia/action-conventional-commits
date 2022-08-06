@@ -7,6 +7,8 @@ async function run(): Promise<void> {
     const gh_token = core.getInput('token')
     const octokit = github.getOctokit(gh_token)
 
+    const types = core.getInput('types')
+
     const {data: commit_list} = await octokit.rest.pulls.listCommits({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
@@ -21,7 +23,7 @@ async function run(): Promise<void> {
     const commits: cc.conventionalcommit[] = []
 
     for (const c of commit_list) {
-      const commit = cc.checkCommit(c.commit.message)
+      const commit = cc.checkCommit(c.commit.message, types)
 
       if (commit.invalid) {
         hasInvalidCommits = true
