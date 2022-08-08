@@ -11,3 +11,4 @@ jobs:
       - uses: taskmedia/action-conventional-commits@v0.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          types: "fix;feat;revert;chore"
