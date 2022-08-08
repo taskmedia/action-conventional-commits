@@ -26,7 +26,7 @@ See: https://conventionalcommits.org/
     token: ""
 
     # allow different types in commit message
-    # Default: fix|feat|revert
+    # Default: fix;feat;revert
     types: ""
 ```
 
@@ -36,10 +36,10 @@ See: https://conventionalcommits.org/
 
 <!-- start inputs -->
 
-| **Input**   | **Description**                                                                                     | **Default** | **Required** |
-| :---------- | :-------------------------------------------------------------------------------------------------- | :---------: | :----------: | ------- | --------- |
-| **`token`** | token to access GitHub API to receive PR commits. Can be passed in using {{ secrets.GITHUB_TOKEN }} |             |   **true**   |
-| **`types`** | allow different types in commit message                                                             |    `fix     |     feat     | revert` | **false** |
+| **Input**   | **Description**                                                                                     |    **Default**    | **Required** |
+| :---------- | :-------------------------------------------------------------------------------------------------- | :---------------: | :----------: |
+| **`token`** | token to access GitHub API to receive PR commits. Can be passed in using {{ secrets.GITHUB_TOKEN }} |                   |   **true**   |
+| **`types`** | allow different types in commit message                                                             | `fix;feat;revert` |  **false**   |
 
 <!-- end inputs -->
 
