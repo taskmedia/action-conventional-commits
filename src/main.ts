@@ -7,7 +7,9 @@ async function run(): Promise<void> {
     const gh_token = core.getInput('token')
     const octokit = github.getOctokit(gh_token)
 
-    const types = core.getInput('types')
+    // replace semicolon with vertical bar to fit regex syntax
+    // not directly used because README markdown table would break
+    const types = core.getInput('types').replace(";","|")
 
     const {data: commit_list} = await octokit.rest.pulls.listCommits({
       owner: github.context.repo.owner,
