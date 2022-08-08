@@ -9,7 +9,7 @@ async function run(): Promise<void> {
 
     // replace semicolon with vertical bar to fit regex syntax
     // not directly used because README markdown table would break
-    const types = core.getInput('types').replace(";","|")
+    const types = core.getInput('types').replace(/;/g, '|')
 
     const {data: commit_list} = await octokit.rest.pulls.listCommits({
       owner: github.context.repo.owner,
