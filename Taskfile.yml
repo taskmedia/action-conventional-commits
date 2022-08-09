@@ -1,0 +1,22 @@
+version: "3"
+
+tasks:
+  init:
+    cmds:
+      - npm install
+
+  build:
+    cmds:
+      - npm run build
+      - npm run package
+
+  release:
+    deps:
+      - build
+    cmds:
+      - if [ -z "{{.CLI_ARGS}}" ]; then echo "specify release version '$ task release -- v1.2.3'" && exit 1; fi
+      - echo "{{.CLI_ARGS}}"
+      - git checkout -b release/{{.CLI_ARGS}}
+      - git add --force dist/
+      - git commit -m "chore(release): release {{.CLI_ARGS}}"
+      - git push -u origin release/{{.CLI_ARGS}}
