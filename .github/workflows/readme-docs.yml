@@ -18,7 +18,7 @@ jobs:
           # use PAT because main branch is a protected branch
           token: ${{ secrets.PAT }}
 
-      - uses: bitflight-devops/github-action-readme-generator@v1.1.9
+      - uses: bitflight-devops/github-action-readme-generator@v1.1.10
         with:
           pretty: "prettier"
           title_prefix: "GitHub Action: "
