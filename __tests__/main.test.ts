@@ -2,7 +2,7 @@ import {expect, test} from '@jest/globals'
 
 import * as cc from '../src/conventionalcommit'
 
-const types_default = "fix|feat|revert"
+const types_default = 'fix|feat|revert'
 
 test('commit - single', async () => {
   let msg: string = `feat: test commit`
@@ -73,7 +73,10 @@ BREAKING CHANGE: API changed`
 test('commit - custom type', async () => {
   let msg: string = `chore: test commit`
 
-  let commit: cc.conventionalcommit = cc.checkCommit(msg, "fix|feat|revert|chore")
+  let commit: cc.conventionalcommit = cc.checkCommit(
+    msg,
+    'fix|feat|revert|chore'
+  )
 
   expect(commit.invalid).toBe(false)
   expect(commit.full).toBe(msg)
