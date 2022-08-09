@@ -21,8 +21,8 @@ See: https://conventionalcommits.org/
 ```yaml
 - uses: taskmedia/action-conventional-commits@main
   with:
-    # token to access GitHub API to receive PR commits. Can be passed in using {{
-    # secrets.GITHUB_TOKEN }}
+    # token to access GitHub API to receive PR commits
+    # Default: ${{ github.token }}
     token: ""
 
     # allow different types in commit message
@@ -36,10 +36,10 @@ See: https://conventionalcommits.org/
 
 <!-- start inputs -->
 
-| **Input**   | **Description**                                                                                     |    **Default**    | **Required** |
-| :---------- | :-------------------------------------------------------------------------------------------------- | :---------------: | :----------: |
-| **`token`** | token to access GitHub API to receive PR commits. Can be passed in using {{ secrets.GITHUB_TOKEN }} |                   |   **true**   |
-| **`types`** | allow different types in commit message                                                             | `fix;feat;revert` |  **false**   |
+| **Input**   | **Description**                                  |      **Default**      | **Required** |
+| :---------- | :----------------------------------------------- | :-------------------: | :----------: |
+| **`token`** | token to access GitHub API to receive PR commits | `${{ github.token }}` |  **false**   |
+| **`types`** | allow different types in commit message          |   `fix;feat;revert`   |  **false**   |
 
 <!-- end inputs -->
 
