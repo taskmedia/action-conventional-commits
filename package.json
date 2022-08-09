@@ -15,12 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/taskmedia/action-conventional-commits.git"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "typescript",
+    "conventional-commits",
+    "commit",
+    "check",
+    "github"
   ],
   "author": "",
   "license": "MIT",
