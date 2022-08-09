@@ -1,6 +1,20 @@
 version: "3"
 
 tasks:
+  default:
+    deps:
+      - build
+      - package
+
+  all:
+    deps:
+      - init
+      - build
+      - format
+      - lint
+      - package
+      - test
+
   init:
     cmds:
       - npm install
@@ -8,11 +22,26 @@ tasks:
   build:
     cmds:
       - npm run build
+
+  format:
+    cmds:
+      - npm run format
+
+  format-check:
+    cmds:
+      - npm run format-check
+
+  lint:
+    cmds:
+      - npm run lint
+
+  package:
+    cmds:
       - npm run package
 
   release:
     deps:
-      - build
+      - all
     cmds:
       - if [ -z "{{.CLI_ARGS}}" ]; then echo "specify release version '$ task release -- v1.2.3'" && exit 1; fi
       - echo "{{.CLI_ARGS}}"
@@ -20,3 +49,7 @@ tasks:
       - git add --force dist/
       - git commit -m "chore(release): release {{.CLI_ARGS}}"
       - git push -u origin release/{{.CLI_ARGS}}
+
+  test:
+    cmds:
+      - npm run test
