@@ -1,0 +1,10 @@
+{
+  "commits": [
+    {
+      "message": "chore(example): this is a example commit\n\nfor testing with nektos/act"
+    },
+    {
+      "message": "feat(example): this is another commit from the same push event"
+    }
+  ]
+}
