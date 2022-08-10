@@ -6,6 +6,14 @@ tasks:
       - build
       - package
 
+  act:pullrequest:
+    cmds:
+      - act pull_request -j 'act-test' -e act/pull-request.json --secret-file act/local.secrets
+
+  act:push:
+    cmds:
+      - act push -j 'act-test' -e act/push.json --secret-file act/local.secrets
+
   all:
     cmds:
       - task: init
