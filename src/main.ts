@@ -4,8 +4,7 @@ import * as cc from './conventionalcommit'
 
 async function run(): Promise<void> {
   try {
-    const gh_token = core.getInput('token')
-    const octokit = github.getOctokit(gh_token)
+    core.info(`starting Action conventional-commits`)
 
     // replace semicolon with vertical bar to fit regex syntax
     // not directly used because README markdown table would break
@@ -14,11 +13,7 @@ async function run(): Promise<void> {
     const skipMerge = /true/i.test(core.getInput('skip_merge'))
     const skipRevert = /true/i.test(core.getInput('skip_revert'))
 
-    const {data: commit_list} = await octokit.rest.pulls.listCommits({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
-      pull_number: github.context.issue.number
-    })
+    const commit_list = await receiveCommits()
 
     let hasInvalidCommits = false
     let versionType = 'patch'
@@ -27,28 +22,30 @@ async function run(): Promise<void> {
 
     const commits: cc.conventionalcommit[] = []
 
-    for (const c of commit_list) {
+    for (const c_msg of commit_list) {
+      const commit_msg = String(c_msg)
+
       // check if merge commit should be skipped
-      if (c.commit.message.startsWith('Merge ') && skipMerge) {
+      if (commit_msg.startsWith('Merge ') && skipMerge) {
         const commit = new cc.conventionalcommit()
-        commit.full = c.commit.message
+        commit.full = commit_msg
         commit.type = `merge`
         commits.push(commit)
-        core.info(`🔇 skip merge: ${c.commit.message}`)
+        core.info(`🔇 skip merge: ${commit_msg}`)
         continue
       }
 
       // check if revert commit should be skipped
-      if (c.commit.message.startsWith('Revert ') && skipRevert) {
+      if (commit_msg.startsWith('Revert ') && skipRevert) {
         const commit = new cc.conventionalcommit()
-        commit.full = c.commit.message
+        commit.full = commit_msg
         commit.type = `revert`
         commits.push(commit)
-        core.info(`🔇 skip revert: ${c.commit.message}`)
+        core.info(`🔇 skip revert: ${commit_msg}`)
         continue
       }
 
-      const commit = cc.checkCommit(c.commit.message, types)
+      const commit = cc.checkCommit(commit_msg, types)
 
       if (commit.invalid) {
         hasInvalidCommits = true
@@ -83,6 +80,27 @@ async function run(): Promise<void> {
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
+}
+
+async function receiveCommits(): Promise<String[]> {
+  const commits: String[] = []
+
+  const gh_token = core.getInput('token')
+  const octokit = github.getOctokit(gh_token)
+
+  // Extract commits from pull request
+  core.debug('Extracting commits from pull request')
+  const {data: commit_list} = await octokit.rest.pulls.listCommits({
+    owner: github.context.repo.owner,
+    repo: github.context.repo.repo,
+    pull_number: github.context.issue.number
+  })
+
+  for (const c of commit_list) {
+    commits.push(c.commit.message)
+  }
+
+  return commits
 }
 
 run()
