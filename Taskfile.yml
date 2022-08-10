@@ -43,8 +43,11 @@ tasks:
     deps:
       - all
     cmds:
+      # check if cli_args is given (release version)
       - if [ -z "{{.CLI_ARGS}}" ]; then echo "specify release version '$ task release -- v1.2.3'" && exit 1; fi
-      - echo "{{.CLI_ARGS}}"
+      - echo "releasing {{.CLI_ARGS}}"
+
+      # create release branch with binaries
       - git checkout -b release/{{.CLI_ARGS}}
       - git add --force dist/
       - git commit -m "chore(release): release {{.CLI_ARGS}}"
