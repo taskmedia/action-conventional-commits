@@ -1,0 +1,31 @@
+name: release
+
+on:
+  release:
+    types:
+      - "published"
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+
+      - name: install Task
+        shell: bash
+        run: |
+          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
+      - name: configure git user
+        shell: bash
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: release binaries (and move git tag)
+        shell: bash
+        run: |
+          task release -- "${{ github.event.release.tag_name }}"
