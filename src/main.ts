@@ -11,6 +11,9 @@ async function run(): Promise<void> {
     // not directly used because README markdown table would break
     const types = core.getInput('types').replace(/;/g, '|')
 
+    const skipMerge = /true/i.test(core.getInput('skip_merge'))
+    const skipRevert = /true/i.test(core.getInput('skip_revert'))
+
     const {data: commit_list} = await octokit.rest.pulls.listCommits({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
@@ -25,6 +28,26 @@ async function run(): Promise<void> {
     const commits: cc.conventionalcommit[] = []
 
     for (const c of commit_list) {
+      // check if merge commit should be skipped
+      if (c.commit.message.startsWith('Merge ') && skipMerge) {
+        const commit = new cc.conventionalcommit()
+        commit.full = c.commit.message
+        commit.type = `merge`
+        commits.push(commit)
+        core.info(`🔇 skip merge: ${c.commit.message}`)
+        continue
+      }
+
+      // check if revert commit should be skipped
+      if (c.commit.message.startsWith('Revert ') && skipRevert) {
+        const commit = new cc.conventionalcommit()
+        commit.full = c.commit.message
+        commit.type = `revert`
+        commits.push(commit)
+        core.info(`🔇 skip revert: ${c.commit.message}`)
+        continue
+      }
+
       const commit = cc.checkCommit(c.commit.message, types)
 
       if (commit.invalid) {
