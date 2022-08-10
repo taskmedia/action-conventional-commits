@@ -1,6 +1,6 @@
 <!-- start title -->
 
-# GitHub Action:verify conventional commits
+# GitHub Action: verify conventional commits
 
 <!-- end title -->
 
@@ -19,7 +19,7 @@ See: https://conventionalcommits.org/
 <!-- start usage -->
 
 ```yaml
-- uses: taskmedia/action-conventional-commits@main
+- uses: /@main
   with:
     # token to access GitHub API to receive PR commits
     # Default: ${{ github.token }}
