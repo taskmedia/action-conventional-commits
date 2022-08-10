@@ -7,13 +7,13 @@ tasks:
       - package
 
   all:
-    deps:
-      - init
-      - build
-      - format
-      - lint
-      - package
-      - test
+    cmds:
+      - task: init
+      - task: build
+      - task: format
+      - task: lint
+      - task: package
+      - task: test
 
   init:
     cmds:
