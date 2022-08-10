@@ -8,11 +8,11 @@ tasks:
 
   act:pullrequest:
     cmds:
-      - act pull_request -j 'act-test' -e act/pull-request.json --secret-file act/local.secrets
+      - act pull_request -j 'act-test' -e act/pull-request.json --secret-file act/local.secrets --use-gitignore=false
 
   act:push:
     cmds:
-      - act push -j 'act-test' -e act/push.json --secret-file act/local.secrets
+      - act push -j 'act-test' -e act/push.json --secret-file act/local.secrets --use-gitignore=false
 
   all:
     cmds:
