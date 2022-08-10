@@ -88,6 +88,15 @@ async function receiveCommits(): Promise<String[]> {
   const gh_token = core.getInput('token')
   const octokit = github.getOctokit(gh_token)
 
+  // Extract commits from push event
+  if (github.context.payload.commits != null) {
+    core.debug('Extracting commits from push event')
+    for (const c of github.context.payload.commits) {
+      commits.push(c.message)
+    }
+    return commits
+  }
+
   // Extract commits from pull request
   core.debug('Extracting commits from pull request')
   const {data: commit_list} = await octokit.rest.pulls.listCommits({
