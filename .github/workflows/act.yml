@@ -3,7 +3,7 @@ on: # rebuild any PRs
   workflow_dispatch:
 
 jobs:
-  test: # make sure the action works on a clean machine without building
+  act-test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
