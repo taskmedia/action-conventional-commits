@@ -50,7 +50,7 @@ tasks:
       # create release branch with binaries
       - git checkout -b release/{{.CLI_ARGS}}
       - git add --force dist/
-      - git commit -m "chore(release): release {{.CLI_ARGS}}"
+      - 'git commit -m "chore(release): release {{.CLI_ARGS}}"'
       - git push -u origin release/{{.CLI_ARGS}}
 
       # move tag to release commit
