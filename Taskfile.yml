@@ -58,6 +58,12 @@ tasks:
       # create release branch with binaries
       - git checkout -b release/{{.CLI_ARGS}}
       - git add --force dist/
+
+      # update version
+      - npm version --no-git-tag-version {{.CLI_ARGS}}
+      - git add package.json
+
+      # commit and push release branch
       - 'git commit -m "chore(release): release {{.CLI_ARGS}}"'
       - git push -u origin release/{{.CLI_ARGS}}
 
