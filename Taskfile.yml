@@ -55,13 +55,15 @@ tasks:
       - if [ -z "{{.CLI_ARGS}}" ]; then echo "specify release version '$ task release -- v1.2.3'" && exit 1; fi
       - echo "releasing {{.CLI_ARGS}}"
 
+      # update version to main branch
+      - npm version --no-git-tag-version {{.CLI_ARGS}}
+      - git add package.json
+      - 'git commit -m "chore(npm): update version to {{.CLI_ARGS}}"'
+      - git push origin main
+
       # create release branch with binaries
       - git checkout -b release/{{.CLI_ARGS}}
       - git add --force dist/
-
-      # update version
-      - npm version --no-git-tag-version {{.CLI_ARGS}}
-      - git add package.json
 
       # commit and push release branch
       - 'git commit -m "chore(release): release {{.CLI_ARGS}}"'
