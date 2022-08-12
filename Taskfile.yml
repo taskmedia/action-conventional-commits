@@ -61,7 +61,7 @@ tasks:
       # update version to main branch
       - npm version --no-git-tag-version {{.CLI_ARGS}}
       - git add package.json
-      - 'git commit -m "chore(npm): update version to {{.CLI_ARGS}}"'
+      - 'git commit -m "chore(npm): update version to {{.CLI_ARGS}}" --no-verify'
       - git push -u origin main
 
       # create release branch with binaries
@@ -69,7 +69,7 @@ tasks:
       - git add --force dist/
 
       # commit and push release branch
-      - 'git commit -m "chore(release): release {{.CLI_ARGS}}"'
+      - 'git commit -m "chore(release): release {{.CLI_ARGS}}" --no-verify'
 
       # move tag to release commit
       - git tag --force {{.CLI_ARGS}} HEAD
