@@ -59,7 +59,7 @@ tasks:
       - npm version --no-git-tag-version {{.CLI_ARGS}}
       - git add package.json
       - 'git commit -m "chore(npm): update version to {{.CLI_ARGS}}"'
-      - git push origin main
+      - git push
 
       # create release branch with binaries
       - git checkout -b release/{{.CLI_ARGS}}
