@@ -67,7 +67,6 @@ tasks:
 
       # commit and push release branch
       - 'git commit -m "chore(release): release {{.CLI_ARGS}}"'
-      - git push -u origin release/{{.CLI_ARGS}}
 
       # move tag to release commit
       - git tag --force {{.CLI_ARGS}} HEAD
