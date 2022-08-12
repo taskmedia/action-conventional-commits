@@ -1,6 +1,8 @@
 name: commits
 
 on:
+  push:
+
   pull_request:
 
 jobs:
