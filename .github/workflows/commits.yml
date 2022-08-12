@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: taskmedia/action-conventional-commits@v0.5.2
+      - uses: taskmedia/action-conventional-commits@v0.6.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           types: "fix;feat;revert;chore"
