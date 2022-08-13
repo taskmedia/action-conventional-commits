@@ -8,7 +8,7 @@ async function run(): Promise<void> {
 
     // replace semicolon with vertical bar to fit regex syntax
     // not directly used because README markdown table would break
-    const types = core.getInput('types').replace(/;/g, '|')
+    const types = core.getInput('types')
 
     const skipMerge = /true/i.test(core.getInput('skip_merge'))
     const skipRevert = /true/i.test(core.getInput('skip_revert'))
