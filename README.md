@@ -34,7 +34,7 @@ See: https://conventionalcommits.org/
     skip_squash: ""
 
     # allow different types in commit message
-    # Default: fix;feat;revert
+    # Default: fix|feat|revert
     types: ""
 ```
 
@@ -45,11 +45,11 @@ See: https://conventionalcommits.org/
 <!-- start inputs -->
 
 | **Input**         | **Description**                                  |      **Default**      | **Required** |
-| :---------------- | :----------------------------------------------- | :-------------------: | :----------: |
+| :---------------- | :----------------------------------------------- | :-------------------: | :----------: | ------- | --------- |
 | **`token`**       | token to access GitHub API to receive PR commits | `${{ github.token }}` |  **false**   |
 | **`skip_merge`**  | skip merge commits                               |        `true`         |  **false**   |
 | **`skip_squash`** | skip squash commits                              |        `true`         |  **false**   |
-| **`types`**       | allow different types in commit message          |   `fix;feat;revert`   |  **false**   |
+| **`types`**       | allow different types in commit message          |         `fix          |     feat     | revert` | **false** |
 
 <!-- end inputs -->
 
