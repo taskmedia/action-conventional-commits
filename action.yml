@@ -17,7 +17,7 @@ inputs:
     description: "skip squash commits"
     required: false
   types:
-    default: "fix;feat;revert"
+    default: "fix|feat|revert"
     description: "allow different types in commit message"
     required: false
 outputs:
