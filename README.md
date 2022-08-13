@@ -19,7 +19,7 @@ See: https://conventionalcommits.org/
 <!-- start usage -->
 
 ```yaml
-- uses: /@main
+- uses: taskmedia/action-conventional-commits@main
   with:
     # token to access GitHub API to receive PR commits
     # Default: ${{ github.token }}
@@ -44,12 +44,12 @@ See: https://conventionalcommits.org/
 
 <!-- start inputs -->
 
-| **Input**         | **Description**                                  |      **Default**      | **Required** |
-| :---------------- | :----------------------------------------------- | :-------------------: | :----------: |
-| **`token`**       | token to access GitHub API to receive PR commits | `${{ github.token }}` |  **false**   |
-| **`skip_merge`**  | skip merge commits                               |        `true`         |  **false**   |
-| **`skip_squash`** | skip squash commits                              |        `true`         |  **false**   |
-| **`types`**       | allow different types in commit message          |   `fix;feat;revert`   |  **false**   |
+| **Input**                    | **Description**                                  | **Default**                      | **Required** |
+| ---------------------------- | ------------------------------------------------ | -------------------------------- | ------------ |
+| **<code>token</code>**       | token to access GitHub API to receive PR commits | <code>${{ github.token }}</code> | **false**    |
+| **<code>skip_merge</code>**  | skip merge commits                               | <code>true</code>                | **false**    |
+| **<code>skip_squash</code>** | skip squash commits                              | <code>true</code>                | **false**    |
+| **<code>types</code>**       | allow different types in commit message          | <code>fix;feat;revert</code>     | **false**    |
 
 <!-- end inputs -->
 
@@ -57,14 +57,14 @@ See: https://conventionalcommits.org/
 
 <!-- start outputs -->
 
-| **Output**        | **Description**                                                                                 | **Default** | **Required** |
-| :---------------- | :---------------------------------------------------------------------------------------------- | ----------- | ------------ |
-| `breaking_commit` | indicates if a breaking commit was found                                                        |             |              |
-| `breaking_msg`    | returns the breaking message of the last breaking commit                                        |             |              |
-| `commits`         | JSON list of commits in PR                                                                      |             |              |
-| `count_commits`   | count of commits in PR                                                                          |             |              |
-| `invalid_commits` | indicates if this commit does not match with conventional commits (other values might be empty) |             |              |
-| `version_type`    | semantic versioning indicator (patch, minor or major)                                           |             |              |
+| \***\*Output\*\***           | \***\*Description\*\***                                                                         | \***\*Default\*\*** | \***\*Required\*\*** |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- | ------------------- | -------------------- |
+| <code>breaking_commit</code> | indicates if a breaking commit was found                                                        | undefined           | undefined            |
+| <code>breaking_msg</code>    | returns the breaking message of the last breaking commit                                        | undefined           | undefined            |
+| <code>commits</code>         | JSON list of commits in PR                                                                      | undefined           | undefined            |
+| <code>count_commits</code>   | count of commits in PR                                                                          | undefined           | undefined            |
+| <code>invalid_commits</code> | indicates if this commit does not match with conventional commits (other values might be empty) | undefined           | undefined            |
+| <code>version_type</code>    | semantic versioning indicator (patch, minor or major)                                           | undefined           | undefined            |
 
 <!-- end outputs -->
 
