@@ -18,10 +18,18 @@ jobs:
           # use PAT because main branch is a protected branch
           token: ${{ secrets.PAT }}
 
+      - uses: mikefarah/yq@v4.27.2
+        id: yq
+        with:
+          cmd: yq eval '.version' 'package.json'
+
+      # workaround for bitflight-devops/github-action-readme-generator#172
+      - run: echo "npm_package_version=${{ steps.yq.outputs.result }}" >> $GITHUB_ENV
       - uses: bitflight-devops/github-action-readme-generator@v1.1.10
         with:
           pretty: "prettier"
           title_prefix: "GitHub Action: "
+          versioning_enabled: "true"
 
       - name: commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
