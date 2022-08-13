@@ -19,7 +19,7 @@ See: https://conventionalcommits.org/
 <!-- start usage -->
 
 ```yaml
-- uses: /@main
+- uses: /@v0.7.4
   with:
     # token to access GitHub API to receive PR commits
     # Default: ${{ github.token }}
