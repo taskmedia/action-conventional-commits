@@ -11,6 +11,11 @@ jobs:
 
     steps:
       - uses: taskmedia/action-conventional-commits@v0.7.4
+        id: cc
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           types: "fix;feat;revert;chore"
+
+      - name: label PR with version type
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        run: gh pr edit ${{ github.event.number }} --add-label "${{ steps.cc.outputs.version_type }}"
