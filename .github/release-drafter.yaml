@@ -19,6 +19,18 @@ categories:
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+  patch:
+    labels:
+      - "patch"
+  default: patch
+
 autolabeler:
   - label: "documentation"
     files:
@@ -32,21 +44,6 @@ autolabeler:
   - label: "enhancement"
     branch:
       - '/feat\/.+/'
-
-  # version-resolver labels
-  # if a PR only fixes some bugs the patch should be updated
-  - label: "patch"
-    branch:
-      - '/fix\/.+/'
-      - '/chore\/.+/'
-  # if a PR adds a feature the minor should be updated (when no breaking changes)
-  - label: "minor"
-    branch:
-      - '/feat\/.+/'
-  # if a PR adds a breaking-change feature the major should be updated
-  - label: "major"
-    body:
-      - '/BREAKING\ CHANGE/'
 
 template: |
   ## Changes
