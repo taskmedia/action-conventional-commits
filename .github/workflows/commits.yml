@@ -20,4 +20,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr edit ${{ github.event.number }} --add-label "${{ steps.cc.outputs.version_type }}"
+        run: |
+          gh pr edit ${{ github.event.number }} \
+            --add-label "${{ steps.cc.outputs.version_type }}" \
+            --repo taskmedia/action-conventional-commits
