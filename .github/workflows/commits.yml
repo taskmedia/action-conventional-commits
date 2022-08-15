@@ -17,10 +17,43 @@ jobs:
           types: "fix;feat;revert;chore"
 
       - name: label PR with version type
-        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+          REPO: ${{ github.repository }}
+        shell: bash
         run: |
-          gh pr edit ${{ github.event.number }} \
-            --add-label "${{ steps.cc.outputs.version_type }}" \
-            --repo taskmedia/action-conventional-commits
+          LABELS=$(gh pr view $PR_NUMBER --repo $REPO --json "labels" --jq '.labels[].name')
+
+          # add version_type label if not already present
+          if [[ "$LABELS" != *"${{ steps.cc.outputs.version_type }}"* ]]; then
+            echo "add label ${{ steps.cc.outputs.version_type }} to PR $PR_NUMBER"
+            gh pr edit $PR_NUMBER \
+              --add-label "${{ steps.cc.outputs.version_type }}" \
+              --repo $REPO
+          else
+            echo "label ${{ steps.cc.outputs.version_type }} already present at PR $PR_NUMBER"
+          fi
+
+          # remove old SemVer labels if present
+          while read -r label
+          do
+            if [ "$label" = "patch" ] && [ "$label" != "${{ steps.cc.outputs.version_type }}" ]; then
+              echo "removing label patch from PR $PR_NUMBER"
+              gh pr edit $PR_NUMBER --repo $REPO --remove-label "patch"
+              continue
+            fi
+
+            if [ "$label" = "minor" ] && [ "$label" != "${{ steps.cc.outputs.version_type }}" ]; then
+              echo "removing label minor from PR $PR_NUMBER"
+              gh pr edit $PR_NUMBER --repo $REPO --remove-label "minor"
+              continue
+            fi
+
+            if [ "$label" = "major" ] && [ "$label" != "${{ steps.cc.outputs.version_type }}" ]; then
+              echo "removing label major from PR $PR_NUMBER"
+              gh pr edit $PR_NUMBER --repo $REPO --remove-label "major"
+              continue
+            fi
+          done <<< "$LABELS"
