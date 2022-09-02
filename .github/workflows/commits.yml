@@ -19,7 +19,10 @@ jobs:
           types: "fix;feat;revert;chore"
 
       - name: label PR with version type
-        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        if: |
+          github.event_name == 'pull_request' &&
+          (github.event.action == 'opened' || github.event.action == 'synchronize') &&
+          github.event.pull_request.user.login != 'dependabot[bot]'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
