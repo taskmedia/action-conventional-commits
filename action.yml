@@ -12,10 +12,6 @@ inputs:
     default: "true"
     description: "skip merge commits"
     required: false
-  skip_squash:
-    default: "true"
-    description: "skip squash commits"
-    required: false
   types:
     default: "fix|feat|revert"
     description: "allow different types in commit message"
