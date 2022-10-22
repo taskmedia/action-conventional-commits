@@ -29,9 +29,9 @@ See: https://conventionalcommits.org/
     # Default: true
     skip_merge: ""
 
-    # skip squash commits
+    # skip revert commits
     # Default: true
-    skip_squash: ""
+    skip_revert: ""
 
     # allow different types in commit message
     # Default: fix|feat|revert
@@ -48,7 +48,7 @@ See: https://conventionalcommits.org/
 | ---------------------------- | ------------------------------------------------ | -------------------------------- | ------------ |
 | **<code>token</code>**       | token to access GitHub API to receive PR commits | <code>${{ github.token }}</code> | **false**    |
 | **<code>skip_merge</code>**  | skip merge commits                               | <code>true</code>                | **false**    |
-| **<code>skip_squash</code>** | skip squash commits                              | <code>true</code>                | **false**    |
+| **<code>skip_revert</code>** | skip revert commits                              | <code>true</code>                | **false**    |
 | **<code>types</code>**       | allow different types in commit message          | <code>fix\|feat\|revert</code>   | **false**    |
 
 <!-- end inputs -->
