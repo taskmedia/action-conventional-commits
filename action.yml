@@ -12,6 +12,10 @@ inputs:
     default: "true"
     description: "skip merge commits"
     required: false
+  skip_revert:
+    default: "true"
+    description: "skip revert commits"
+    required: false
   skip_squash:
     default: "true"
     description: "skip squash commits"
