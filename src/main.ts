@@ -2,6 +2,9 @@ import * as github from '@actions/github'
 import * as core from '@actions/core'
 import * as cc from './conventionalcommit'
 
+export const owner = github.context.repo.owner
+export const repo = github.context.repo.repo
+
 async function run(): Promise<void> {
   try {
     core.info(`starting Action conventional-commits`)
@@ -100,8 +103,8 @@ async function receiveCommits(): Promise<String[]> {
   // Extract commits from pull request
   core.debug('Extracting commits from pull request')
   const {data: commit_list} = await octokit.rest.pulls.listCommits({
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo,
+    owner,
+    repo,
     pull_number: github.context.issue.number
   })
 
