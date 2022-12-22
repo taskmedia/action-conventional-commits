@@ -14,7 +14,6 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v3
         with:
-          ref: main
           # use PAT because main branch is a protected branch
           token: ${{ secrets.PAT }}
 
