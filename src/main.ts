@@ -76,6 +76,13 @@ async function run(): Promise<void> {
 
     const isLabel = core.getInput('label')
     if (isLabel) {
+      if (!github.context.payload.pull_request) {
+        core.info(
+          `🔖 action was not triggered from pull request - skipping labeling`
+        )
+      }
+
+      core.info(`🔖 labeling semVer to pull request`)
       addLabels(versionType)
     }
 
