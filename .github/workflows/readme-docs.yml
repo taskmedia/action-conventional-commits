@@ -25,7 +25,10 @@ jobs:
 
       # workaround for bitflight-devops/github-action-readme-generator#172
       - run: echo "npm_package_version=${{ steps.yq.outputs.result }}" >> $GITHUB_ENV
-      - uses: bitflight-devops/github-action-readme-generator@v1.3.14
+      
+      # use fixed bitflight-devops/github-action-readme-generator action
+      # see issues: 179, 180 and 181
+      - uses: fty4/github-action-readme-generator@619a3775fdd606926f3820f00471c0cde9f30bf1 #fty4-v0.0.1
         with:
           pretty: "prettier"
           title_prefix: "GitHub Action: "
