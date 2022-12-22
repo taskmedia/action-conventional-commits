@@ -1,6 +1,7 @@
 import * as github from '@actions/github'
 import * as core from '@actions/core'
 import * as cc from './conventionalcommit'
+import {addLabels} from './label'
 
 const gh_token = core.getInput('token')
 export const octokit = github.getOctokit(gh_token)
@@ -71,6 +72,11 @@ async function run(): Promise<void> {
       }
 
       commits.push(commit)
+    }
+
+    const isLabel = core.getInput('label')
+    if (isLabel) {
+      addLabels(versionType)
     }
 
     core.setOutput('breaking_commit', hasBreakingCommit)
