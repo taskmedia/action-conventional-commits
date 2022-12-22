@@ -2,6 +2,9 @@ import * as github from '@actions/github'
 import * as core from '@actions/core'
 import * as cc from './conventionalcommit'
 
+const gh_token = core.getInput('token')
+export const octokit = github.getOctokit(gh_token)
+
 export const owner = github.context.repo.owner
 export const repo = github.context.repo.repo
 
@@ -87,9 +90,6 @@ async function run(): Promise<void> {
 
 async function receiveCommits(): Promise<String[]> {
   const commits: String[] = []
-
-  const gh_token = core.getInput('token')
-  const octokit = github.getOctokit(gh_token)
 
   // Extract commits from push event
   if (github.context.payload.commits != null) {
