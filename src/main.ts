@@ -8,7 +8,8 @@ async function run(): Promise<void> {
 
     // replace semicolon with vertical bar to fit regex syntax
     // not directly used because README markdown table would break
-    const types = core.getInput('types')
+    const types = core.getInput('types');
+    const scopes = core.getInput('types');
 
     const skipMerge = /true/i.test(core.getInput('skip_merge'))
     const skipRevert = /true/i.test(core.getInput('skip_revert'))
@@ -45,7 +46,7 @@ async function run(): Promise<void> {
         continue
       }
 
-      const commit = cc.checkCommit(commit_msg, types)
+      const commit = cc.checkCommit(commit_msg, types, scopes)
 
       if (commit.invalid) {
         hasInvalidCommits = true
