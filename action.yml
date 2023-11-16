@@ -20,6 +20,10 @@ inputs:
     default: "fix|feat|revert"
     description: "allow different types in commit message"
     required: false
+  scopes:
+    default: ""
+    description: "allow different scopes in commit message"
+    required: false
 outputs:
   breaking_commit:
     description: "indicates if a breaking commit was found"
