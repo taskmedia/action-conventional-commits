@@ -66,8 +66,9 @@ tasks:
       - git push -u origin main
 
       # create release branch with binaries
-      - git checkout -b release/{{.CLI_ARGS}}
-      - git add --force dist/
+      - git checkout -b release/{{.CLI_ARGS}} --orphan
+      - git rm --cached -r .
+      - git add --force dist/ README.md LICENSE action.yml
 
       # commit and push release branch
       - 'git commit -m "chore(release): release {{.CLI_ARGS}}" --no-verify'
