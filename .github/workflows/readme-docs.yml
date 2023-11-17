@@ -28,7 +28,7 @@ jobs:
       
       # use fixed bitflight-devops/github-action-readme-generator action
       # see issues: 179, 180 and 181
-      - uses: bitflight-devops/github-action-readme-generator@08472bcdc15cf886c19cb8d7933760a2e9db0c9d # v1.6.0
+      - uses: fty4/github-action-readme-generator@619a3775fdd606926f3820f00471c0cde9f30bf1 #fty4-v0.0.1
         with:
           pretty: "prettier"
           title_prefix: "GitHub Action: "
