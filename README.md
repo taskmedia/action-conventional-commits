@@ -19,7 +19,7 @@ See: https://conventionalcommits.org/
 <!-- start usage -->
 
 ```yaml
-- uses: taskmedia/action-conventional-commits@v1.1.5
+- uses: fty4/action-conventional-commits-orphanrelease@v0.1.0
   with:
     # token to access GitHub API to receive PR commits
     # Default: ${{ github.token }}
