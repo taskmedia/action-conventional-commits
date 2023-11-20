@@ -63,8 +63,8 @@ jobs:
     name: Readme update PR
     needs: release
     uses: ./.github/workflows/readme-docs.yml
-    if: ${{ needs.release-chart.outputs.rpaHeadBranchName != '' }}
+    if: ${{ needs.release.outputs.rpaHeadBranchName != '' }}
     with:
-      branch: ${{ needs.release-chart.outputs.rpaHeadBranchName }}
+      branch: ${{ needs.release.outputs.rpaHeadBranchName }}
     secrets:
       PAT: ${{ secrets.PAT }}
