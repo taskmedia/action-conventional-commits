@@ -65,6 +65,6 @@ jobs:
     uses: ./.github/workflows/readme-docs.yml
     if: ${{ needs.release-chart.outputs.rpaHeadBranchName != '' }}
     with:
-      branchName: ${{ needs.release-chart.outputs.rpaHeadBranchName }}
+      branch: ${{ needs.release-chart.outputs.rpaHeadBranchName }}
     secrets:
       PAT: ${{ secrets.PAT }}
