@@ -66,5 +66,5 @@ jobs:
     if: ${{ needs.release.outputs.rpaHeadBranchName != '' }}
     with:
       branch: ${{ needs.release.outputs.rpaHeadBranchName }}
-    secrets:
-      PAT: ${{ secrets.PAT }}
+    # secrets:
+    #   PAT: ${{ secrets.PAT }}

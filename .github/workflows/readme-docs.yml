@@ -18,6 +18,10 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   readme:
     name: readme
@@ -26,8 +30,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        # use PAT because main branch is a protected branch
-        token: ${{ secrets.PAT }}
+        # # use PAT because main branch is a protected branch
+        # token: ${{ secrets.PAT }}
         ref: ${{ inputs.branch }}
 
     - uses: mikefarah/yq@v4.40.1
@@ -51,4 +55,4 @@ jobs:
       with:
         commit_message: "chore(doc): autoupdated README"
         file_pattern: README.md
-        push_options: "--force"
+        # push_options: "--force"
