@@ -3,7 +3,7 @@ name: release
 on:
   release:
     types:
-      - "published"
+    - "published"
 
 jobs:
   release:
@@ -11,24 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
-        with:
-          # use PAT because main branch is a protected branch
-          token: ${{ secrets.PAT }}
+    - name: checkout repository
+      uses: actions/checkout@v4
+      # with:
+      #   # use PAT because main branch is a protected branch
+      #   token: ${{ secrets.PAT }}
 
-      - name: install Task
-        shell: bash
-        run: |
-          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
-
-      - name: configure git user
-        shell: bash
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: release binaries (and move git tag)
-        shell: bash
-        run: |
-          task release -- "${{ github.event.release.tag_name }}"
+    - uses: google-github-actions/release-please-action@v3
+      with:
+        extra-files: |
+          README.md
+        release-type: node
+        prerelease: true # to create orphan later
+        pull-request-title-pattern: "chore(release): ${component} ${version}"
+        changelog-types: >
+          [
+            { "type": "feat", "section": "Features" },
+            { "type": "fix", "section": "Bug Fixes" },
+            { "type": "revert", "section": "Reverts" },
+            { "type": "chore", "section": "Miscellaneous Chores" },
+            { "type": "docs", "section": "Documentation" },
+            { "type": "test", "section": "Tests", "hidden": "true" },
+            { "type": "ci", "section": "Continuous Integration", "hidden": "true" }
+          ]

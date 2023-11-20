@@ -3,80 +3,50 @@ version: "3"
 tasks:
   default:
     cmds:
-      - task: build
-      - task: package
+    - task: build
+    - task: package
 
   act:pullrequest:
     cmds:
-      - act pull_request -j 'act-test' -e act/pull-request.json --secret-file act/local.secrets --use-gitignore=false
+    - act pull_request -j 'act-test' -e act/pull-request.json --secret-file act/local.secrets --use-gitignore=false
 
   act:push:
     cmds:
-      - act push -j 'act-test' -e act/push.json --secret-file act/local.secrets --use-gitignore=false
+    - act push -j 'act-test' -e act/push.json --secret-file act/local.secrets --use-gitignore=false
 
   all:
     cmds:
-      - task: init
-      - task: build
-      - task: format
-      - task: lint
-      - task: package
-      - task: test
+    - task: init
+    - task: build
+    - task: format
+    - task: lint
+    - task: package
+    - task: test
 
   init:
     cmds:
-      - npm install
+    - npm install
 
   build:
     cmds:
-      - npm run build
+    - npm run build
 
   format:
     cmds:
-      - npm run format
+    - npm run format
 
   format-check:
     cmds:
-      - npm run format-check
+    - npm run format-check
 
   lint:
     cmds:
-      - npm run lint
+    - npm run lint
 
   package:
     cmds:
-      - npm run package
-
-  release:
-    deps:
-      - all
-    cmds:
-      # check if cli_args is given (release version)
-      - if [ -z "{{.CLI_ARGS}}" ]; then echo "specify release version '$ task release -- v1.2.3'" && exit 1; fi
-      - echo "releasing {{.CLI_ARGS}}"
-
-      # ensure main branch
-      - git fetch
-      - git checkout main
-
-      # update version to main branch
-      - npm version --no-git-tag-version {{.CLI_ARGS}}
-      - git add package.json package-lock.json
-      - 'git commit -m "chore(npm): update version to {{.CLI_ARGS}}" --no-verify'
-      - git push -u origin main
-
-      # create release branch with binaries
-      - git checkout --orphan release/{{.CLI_ARGS}}
-      - git rm --cached -r .
-      - git add --force dist/ README.md LICENSE action.yml
-
-      # commit and push release branch
-      - 'git commit -m "chore(release): release {{.CLI_ARGS}}" --no-verify'
-
-      # move tag to release commit
-      - git tag --force {{.CLI_ARGS}} HEAD
-      - git push --force origin {{.CLI_ARGS}}
+    - npm run package
 
   test:
     cmds:
-      - npm run test
+    - npm run test
