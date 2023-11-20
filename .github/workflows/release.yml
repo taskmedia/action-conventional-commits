@@ -13,6 +13,9 @@ jobs:
   release:
     name: release
     runs-on: ubuntu-latest
+    outputs:
+      # if PR is created from rpa output branch name to trigger readme docs wf
+      rpaHeadBranchName: ${{ steps.job-output.outputs.headBranchName }}
 
     steps:
     - name: checkout repository
@@ -22,9 +25,10 @@ jobs:
       #   token: ${{ secrets.PAT }}
 
     - uses: google-github-actions/release-please-action@v3
+      id: rpa
       with:
-        extra-files: |
-          README.md
+        # extra-files: |
+        #   README.md
         release-type: node
         prerelease: true # to create orphan later
         pull-request-title-pattern: "chore(release): ${component} ${version}"
@@ -38,3 +42,29 @@ jobs:
             { "type": "test", "section": "Tests", "hidden": "true" },
             { "type": "ci", "section": "Continuous Integration", "hidden": "true" }
           ]
+
+    - name: output rpa headBranchName if present
+      id: job-output
+      shell: bash
+      run: |
+        RPA_PR_JSON='${{ steps.rpa.outputs.pr }}'
+        headBranchName=$(echo $RPA_PR_JSON | tr -d '\n' | jq -r '.headBranchName')
+        if [ "${headBranchName}" ]; then
+          echo "::debug::Found headBranchName"
+          echo "headBranchName=${headBranchName}" >> "$GITHUB_OUTPUT"
+        else
+          echo "::debug::NO headBranchName found"
+        fi
+
+      # - name: update readme version
+
+
+  readme-update-pr:
+    name: Readme update PR
+    needs: release
+    uses: ./.github/workflows/readme-docs.yml
+    if: ${{ needs.release-chart.outputs.rpaHeadBranchName != '' }}
+    with:
+      branchName: ${{ needs.release-chart.outputs.rpaHeadBranchName }}
+    secrets:
+      PAT: ${{ secrets.PAT }}

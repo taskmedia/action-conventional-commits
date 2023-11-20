@@ -2,9 +2,19 @@ name: docs
 
 on:
   pull_request:
-    # paths:
-    #   - action.yml
-    #   - README.md
+  # paths:
+  #   - action.yml
+  #   - README.md
+
+  workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
+        description: "branch name to checkout from - used for pull requests"
+    secrets:
+      PAT:
+        required: true
 
   workflow_dispatch:
 
@@ -14,30 +24,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          # use PAT because main branch is a protected branch
-          token: ${{ secrets.PAT }}
+    - uses: actions/checkout@v4
+      with:
+        # use PAT because main branch is a protected branch
+        token: ${{ secrets.PAT }}
+        ref: ${{ inputs.branch }}
 
-      - uses: mikefarah/yq@v4.40.1
-        id: yq
-        with:
-          cmd: yq eval '.version' 'package.json'
+    - uses: mikefarah/yq@v4.40.1
+      id: yq
+      with:
+        cmd: yq eval '.version' 'package.json'
 
-      # workaround for bitflight-devops/github-action-readme-generator#172
-      - run: echo "npm_package_version=${{ steps.yq.outputs.result }}" >> $GITHUB_ENV
-      
-      # use fixed bitflight-devops/github-action-readme-generator action
-      # see issues: 179, 180 and 181
-      - uses: fty4/github-action-readme-generator@619a3775fdd606926f3820f00471c0cde9f30bf1 #fty4-v0.0.1
-        with:
-          pretty: "prettier"
-          title_prefix: "GitHub Action: "
-          versioning_enabled: "true"
+    # workaround for bitflight-devops/github-action-readme-generator#172
+    - run: echo "npm_package_version=${{ steps.yq.outputs.result }}" >> $GITHUB_ENV
 
-      - name: commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore(doc): autoupdated README"
-          file_pattern: README.md
-          push_options: "--force"
+    # use fixed bitflight-devops/github-action-readme-generator action
+    # see issues: 179, 180 and 181
+    - uses: fty4/github-action-readme-generator@619a3775fdd606926f3820f00471c0cde9f30bf1 #fty4-v0.0.1
+      with:
+        pretty: "prettier"
+        title_prefix: "GitHub Action: "
+        versioning_enabled: "true"
+
+    - name: commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore(doc): autoupdated README"
+        file_pattern: README.md
+        push_options: "--force"
