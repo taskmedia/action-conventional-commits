@@ -6,8 +6,8 @@ jobs:
   act-test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          types: "fix|feat|revert|chore"
+    - uses: actions/checkout@v4
+    - uses: ./
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        types: "fix|feat|revert|chore"
