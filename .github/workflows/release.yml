@@ -1,34 +1,145 @@
 name: release
 
 on:
-  release:
-    types:
-    - "published"
+  push:
+    branches:
+    - main
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   release:
     name: release
     runs-on: ubuntu-latest
+    outputs:
+      # if PR is created from rpa output branch name to trigger readme docs wf
+      rpaHeadBranchName: ${{ steps.job-output.outputs.headBranchName }}
 
     steps:
     - name: checkout repository
       uses: actions/checkout@v4
+
+    # because releases are orphan commits (no history) relase-plase needs a
+    # base commit to create the diff from. Because of that the release contains
+    # the commit sha inside a HTML comment at the bottom of the release body.
+    - name: fetch commit of latest release
+      shell: bash
+      id: base-commit
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        RELEASE_BASE_COMMIT=$(gh api \
+          /repos/${{ github.repository }}/releases/latest \
+          | jq '.body' \
+          | grep -Eo '<!-- base-commit: [a-z0-9]+ -->' \
+          | cut -d ' ' -f3)
+
+        echo "base-commit-sha: ${RELEASE_BASE_COMMIT}"
+        echo "sha=${RELEASE_BASE_COMMIT}" >> "$GITHUB_OUTPUT"
+
+    - uses: google-github-actions/release-please-action@v3
+      id: rpa
       with:
-        # use PAT because main branch is a protected branch
-        token: ${{ secrets.PAT }}
+        last-release-sha: ${{ steps.base-commit.outputs.sha }}
+        # prerelease will be published later from orphan commit
+        prerelease: true
+        release-type: node
+        pull-request-title-pattern: "chore(release): ${component} ${version}"
+        changelog-types: >
+          [
+            { "type": "feat", "section": "Features" },
+            { "type": "fix", "section": "Bug Fixes" },
+            { "type": "revert", "section": "Reverts" },
+            { "type": "chore", "section": "Miscellaneous Chores" },
+            { "type": "docs", "section": "Documentation" },
+            { "type": "test", "section": "Tests", "hidden": "true" },
+            { "type": "ci", "section": "Continuous Integration", "hidden": "true" }
+          ]
+
+    - name: output rpa headBranchName if present
+      id: job-output
+      shell: bash
+      run: |
+        RPA_PR_JSON='${{ steps.rpa.outputs.pr }}'
+        headBranchName=$(echo $RPA_PR_JSON | tr -d '\n' | jq -r '.headBranchName')
+        if [ "${headBranchName}" ]; then
+          echo "::debug::Found headBranchName"
+          echo "headBranchName=${headBranchName}" >> "$GITHUB_OUTPUT"
+        else
+          echo "::debug::NO headBranchName found"
+        fi
 
     - name: install Task
+      if: ${{ steps.rpa.outputs.release_created }}
       shell: bash
       run: |
         sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
 
-    - name: configure git user
+    - name: built binaries
+      if: ${{ steps.rpa.outputs.release_created }}
       shell: bash
+      run: task release
+
+    - name: update release (use orpahn commit)
+      if: ${{ steps.rpa.outputs.release_created }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
+        COMMIT_MAIN=$(git rev-parse HEAD)
+        echo "::debug::COMMIT_MAIN> ${COMMIT_MAIN}"
+
+        echo "::debug::creating orphan branch"
+        git checkout --orphan release
+        git rm --cached -r .
+        git add --force dist/ README.md LICENSE action.yml
+
+        echo "::debug::configuring github user"
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-    - name: release binaries (and move git tag)
-      shell: bash
-      run: |
-        task release -- "${{ github.event.release.tag_name }}"
+        echo "::debug::creating orphan release commit"
+        git commit \
+          -m "chore: release {{ steps.rpa.outputs.tag_name }} (orphan)"
+
+        echo "::debug::pushing tag ${{ steps.rpa.outputs.tag_name }}"
+        git tag "${{ steps.rpa.outputs.tag_name }}" --force
+        git push origin "${{ steps.rpa.outputs.tag_name }}" --force
+
+        echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
+        git tag "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --force
+        git push origin "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --force
+
+        echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}"
+        git tag "v${{ steps.rpa.outputs.major }}" --force
+        git push origin "v${{ steps.rpa.outputs.major }}" --force
+
+        echo "::debug::pushing tag latest"
+        git tag latest --force
+        git push origin latest --force
+
+
+        echo "::debug::reading gh release body ${{ steps.rpa.outputs.tag_name }}"
+        gh release view "${{ steps.rpa.outputs.tag_name }}" \
+          --json body \
+          --jq '.body' \
+          > release-msg.txt
+
+        echo "::debug::adding base-commit to release body file"
+        echo -e -n "\n\n<!-- base-commit: ${COMMIT_MAIN} -->" >> release-msg.txt
+
+        echo "::debug::updating gh release ${{ steps.rpa.outputs.tag_name }}"
+        gh release edit "${{ steps.rpa.outputs.tag_name }}" \
+          --draft=false \
+          --latest \
+          --notes-file release-msg.txt
+
+  readme-update-pr:
+    name: Readme update PR
+    needs: release
+    uses: ./.github/workflows/readme-docs.yml
+    if: ${{ needs.release.outputs.rpaHeadBranchName != '' }}
+    with:
+      branch: ${{ needs.release.outputs.rpaHeadBranchName }}
