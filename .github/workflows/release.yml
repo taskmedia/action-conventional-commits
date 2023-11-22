@@ -45,6 +45,8 @@ jobs:
     - uses: google-github-actions/release-please-action@v3
       id: rpa
       with:
+        # temporary fix to set correct release version
+        release-as: 1.1.6
         last-release-sha: ${{ steps.base-commit.outputs.sha }}
         # prerelease will be published later from orphan commit
         prerelease: true
