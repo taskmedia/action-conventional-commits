@@ -34,7 +34,8 @@ jobs:
           /repos/${{ github.repository }}/releases/latest \
           | jq '.body' \
           | grep -Eo '<!-- base-commit: [a-z0-9]+ -->' \
-          | cut -d ' ' -f3)
+          | cut -d ' ' -f3 \
+          || true)
 
         echo "base-commit-sha: ${RELEASE_BASE_COMMIT}"
         echo "sha=${RELEASE_BASE_COMMIT}" >> "$GITHUB_OUTPUT"
