@@ -107,7 +107,7 @@ jobs:
 
         echo "::debug::creating orphan release commit"
         git commit \
-          -m "chore: release {{ steps.rpa.outputs.tag_name }} (orphan)"
+          -m "chore: release ${{ steps.rpa.outputs.tag_name }} (orphan)"
 
         echo "::debug::pushing tag ${{ steps.rpa.outputs.tag_name }}"
         git tag "${{ steps.rpa.outputs.tag_name }}" --force
