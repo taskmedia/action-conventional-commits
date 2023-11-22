@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.6...v1.1.7) (2023-11-22)
+
+
+### Bug Fixes
+
+* variable not correctly declared for release commit ([eeaf94d](https://github.com/taskmedia/action-conventional-commits/commit/eeaf94dc151a723db9108b4e4685e295eb9f533a))
+
 ## [1.1.6](https://github.com/taskmedia/action-conventional-commits/compare/v0.7.3...v1.1.6) (2023-11-22)
 
 
