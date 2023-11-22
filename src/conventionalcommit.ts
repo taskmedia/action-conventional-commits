@@ -1,3 +1,5 @@
+import {escapeRegExp} from 'lodash'
+
 export class conventionalcommit {
   invalid: boolean
 
@@ -46,8 +48,11 @@ export function checkCommit(
   commit_msg: string,
   types: string
 ): conventionalcommit {
+  // escape regex for input types, except for the pipe character
+  const safeTypes = escapeRegExp(types).replace(/\\\|/g, '|')
+
   const regex_conventionalcommit = new RegExp(
-    `^(?:(?<type>(${types}))(?:\\((?<scope>.*)\\))?(?<breaking>!?): (?<message>.*)?)` +
+    `^(?:(?<type>(${safeTypes}))(?:\\((?<scope>.*)\\))?(?<breaking>!?): (?<message>.*)?)` +
       `\\n?` +
       `(?<body>[\\S\\s]+)?$`
   )
