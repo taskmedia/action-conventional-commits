@@ -33,7 +33,7 @@ jobs:
         RELEASE_BASE_COMMIT=$(gh api \
           /repos/${{ github.repository }}/releases/latest \
           | jq '.body' \
-          | grep -Eo '<!-- base-commit: [a-z0-9]+ -->' \
+          | grep -Eo '<!-- base-commit: [0-9a-f]{5,40} -->' \
           | cut -d ' ' -f3 \
           || true)
 
