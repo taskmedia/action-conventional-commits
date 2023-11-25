@@ -28,7 +28,7 @@ jobs:
         # token: ${{ secrets.PAT }}
         ref: ${{ inputs.branch }}
 
-    - uses: mikefarah/yq@v4.40.2
+    - uses: mikefarah/yq@v4.40.3
       id: yq
       with:
         cmd: yq eval '.version' 'package.json'
