@@ -33,7 +33,7 @@
     "@actions/github": "^6.0.0",
     "@types/lodash.escaperegexp": "^4.1.9",
     "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.3",
