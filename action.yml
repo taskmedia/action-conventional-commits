@@ -1,0 +1,41 @@
+name: "verify conventional commits"
+description: |
+  Check if commits of a PR match against the conventional commits specification.
+  See: https://conventionalcommits.org/
+author: "taskmedia"
+inputs:
+  token:
+    default: "${{ github.token }}"
+    description: "token to access GitHub API to receive PR commits"
+    required: false
+  skip_merge:
+    default: "true"
+    description: "skip merge commits"
+    required: false
+  skip_revert:
+    default: "true"
+    description: "skip revert commits"
+    required: false
+  types:
+    default: "fix|feat|revert"
+    description: "allow different types in commit message"
+    required: false
+outputs:
+  breaking_commit:
+    description: "indicates if a breaking commit was found"
+  breaking_msg:
+    description: "returns the breaking message of the last breaking commit"
+  commits:
+    description: "JSON list of commits in PR"
+  count_commits:
+    description: "count of commits in PR"
+  invalid_commits:
+    description: "indicates if this commit does not match with conventional commits (other values might be empty)"
+  version_type:
+    description: "semantic versioning indicator (patch, minor or major)"
+runs:
+  using: "node16"
+  main: "dist/index.js"
+branding:
+  icon: "git-pull-request"
+  color: "green"
