@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.11](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.10...v1.1.11) (2024-01-10)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.10.6 to 20.10.8 ([#369](https://github.com/taskmedia/action-conventional-commits/issues/369)) ([0b3a5b4](https://github.com/taskmedia/action-conventional-commits/commit/0b3a5b4b0c224f613699a003c4184879b7a18d31))
+* **deps-dev:** bump eslint-plugin-jest from 27.6.1 to 27.6.2 ([#368](https://github.com/taskmedia/action-conventional-commits/issues/368)) ([f93deb6](https://github.com/taskmedia/action-conventional-commits/commit/f93deb662a2f020df9434a9dbabf81c28773ff93))
+* **deps:** bump eslint-plugin-prettier from 5.1.2 to 5.1.3 ([#370](https://github.com/taskmedia/action-conventional-commits/issues/370)) ([1809491](https://github.com/taskmedia/action-conventional-commits/commit/180949151b3f8a2bf502406afbadb5c8631462f8))
+* **deps:** bump taskmedia/action-conventional-commits ([#365](https://github.com/taskmedia/action-conventional-commits/issues/365)) ([1a3350e](https://github.com/taskmedia/action-conventional-commits/commit/1a3350eda1b2dad913cb50256d0b15d7cb166b36))
+
 ## [1.1.10](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.9...v1.1.10) (2024-01-03)
 
 
