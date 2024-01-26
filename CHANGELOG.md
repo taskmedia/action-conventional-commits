@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.12](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.11...v1.1.12) (2024-01-26)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.10.8 to 20.11.0 ([#372](https://github.com/taskmedia/action-conventional-commits/issues/372)) ([3f84405](https://github.com/taskmedia/action-conventional-commits/commit/3f84405537991963d352aa02fb538348aeccbf37))
+* **deps-dev:** bump @types/node from 20.11.0 to 20.11.1 ([#377](https://github.com/taskmedia/action-conventional-commits/issues/377)) ([5c8b330](https://github.com/taskmedia/action-conventional-commits/commit/5c8b3303b291a664a068661568e23938a3e8752b))
+* **deps-dev:** bump @types/node from 20.11.1 to 20.11.5 ([#380](https://github.com/taskmedia/action-conventional-commits/issues/380)) ([0b5521e](https://github.com/taskmedia/action-conventional-commits/commit/0b5521e43f90276c1c72bdd5539e5545c11854d8))
+* **deps-dev:** bump @types/node from 20.11.5 to 20.11.7 ([#384](https://github.com/taskmedia/action-conventional-commits/issues/384)) ([41a796d](https://github.com/taskmedia/action-conventional-commits/commit/41a796d79f6da10e3d349b34833b691608b18f55))
+* **deps-dev:** bump eslint-plugin-jest from 27.6.2 to 27.6.3 ([#376](https://github.com/taskmedia/action-conventional-commits/issues/376)) ([4e51ba1](https://github.com/taskmedia/action-conventional-commits/commit/4e51ba1ba72d0adcf6d2883c354bc2ff4a08fe90))
+* **deps-dev:** bump husky from 8.0.3 to 9.0.6 ([#385](https://github.com/taskmedia/action-conventional-commits/issues/385)) ([d0465f9](https://github.com/taskmedia/action-conventional-commits/commit/d0465f9bd6b5388a39a603241d1092163fde385f))
+* **deps:** bump eslint-plugin-prettier from 5.1.2 to 5.1.3 ([#373](https://github.com/taskmedia/action-conventional-commits/issues/373)) ([711ac69](https://github.com/taskmedia/action-conventional-commits/commit/711ac69a1b4a2187dfbc4383d3a44c6a5eca1bb9))
+* **deps:** bump prettier from 3.1.1 to 3.2.4 ([#381](https://github.com/taskmedia/action-conventional-commits/issues/381)) ([0b3672a](https://github.com/taskmedia/action-conventional-commits/commit/0b3672a089e27371f450a82fb8537925df2ad3e7))
+
 ## [1.1.11](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.10...v1.1.11) (2024-01-10)
 
 
