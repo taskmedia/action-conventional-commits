@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.14](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.13...v1.1.14) (2024-02-27)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.11.19 to 20.11.20 ([#405](https://github.com/taskmedia/action-conventional-commits/issues/405)) ([9ab2384](https://github.com/taskmedia/action-conventional-commits/commit/9ab2384b36a2b4e7f92e7b4f192b81ab81c955c5))
+* **deps-dev:** bump eslint from 8.56.0 to 8.57.0 ([#406](https://github.com/taskmedia/action-conventional-commits/issues/406)) ([dcb0759](https://github.com/taskmedia/action-conventional-commits/commit/dcb0759ae49ee83f23c43f628927cf9816346e1b))
+* **deps-dev:** bump eslint-plugin-jest from 27.8.0 to 27.9.0 ([#404](https://github.com/taskmedia/action-conventional-commits/issues/404)) ([5ebc58a](https://github.com/taskmedia/action-conventional-commits/commit/5ebc58a35636a57c84fe1b0a2816dfc5ab1a4430))
+* **deps:** bump mikefarah/yq from 4.41.1 to 4.42.1 ([#407](https://github.com/taskmedia/action-conventional-commits/issues/407)) ([e21e734](https://github.com/taskmedia/action-conventional-commits/commit/e21e734dadafd9be74c2e4848a178cb779a9ad50))
+
 ## [1.1.13](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.12...v1.1.13) (2024-02-16)
 
 
