@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.16](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.15...v1.1.16) (2024-03-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump mikefarah/yq from 4.42.1 to 4.43.1 ([#422](https://github.com/taskmedia/action-conventional-commits/issues/422)) ([251877d](https://github.com/taskmedia/action-conventional-commits/commit/251877d715cb394254ce3daf3661befd174e062e))
+
 ## [1.1.15](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.14...v1.1.15) (2024-03-22)
 
 
