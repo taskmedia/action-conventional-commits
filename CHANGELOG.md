@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.18](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.17...v1.1.18) (2024-05-29)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.12.11 to 20.12.12 ([#442](https://github.com/taskmedia/action-conventional-commits/issues/442)) ([1a19dd7](https://github.com/taskmedia/action-conventional-commits/commit/1a19dd76c487a262f04c5db781e1f743e38c237d))
+
 ## [1.1.17](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.16...v1.1.17) (2024-05-13)
 
 
