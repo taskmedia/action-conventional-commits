@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.18](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.17...v1.1.18) (2024-09-18)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.12.11 to 20.12.12 ([#442](https://github.com/taskmedia/action-conventional-commits/issues/442)) ([1a19dd7](https://github.com/taskmedia/action-conventional-commits/commit/1a19dd76c487a262f04c5db781e1f743e38c237d))
+* **deps-dev:** bump @types/node from 20.12.12 to 22.5.5 ([#487](https://github.com/taskmedia/action-conventional-commits/issues/487)) ([3e5b1cb](https://github.com/taskmedia/action-conventional-commits/commit/3e5b1cb70009203f5112ece6291948e60c9d9555))
+* **deps-dev:** bump eslint-plugin-github from 4.10.2 to 5.0.2 ([#485](https://github.com/taskmedia/action-conventional-commits/issues/485)) ([effc9db](https://github.com/taskmedia/action-conventional-commits/commit/effc9db17fd612731011fad592b0191a2c35a255))
+* **deps-dev:** bump husky from 9.0.11 to 9.1.5 ([#481](https://github.com/taskmedia/action-conventional-commits/issues/481)) ([a6faffa](https://github.com/taskmedia/action-conventional-commits/commit/a6faffa939643132f6abd62ef8f5dd1b96b4f2d0))
+* **deps-dev:** bump husky from 9.1.5 to 9.1.6 ([#484](https://github.com/taskmedia/action-conventional-commits/issues/484)) ([b1c4fba](https://github.com/taskmedia/action-conventional-commits/commit/b1c4fbacc40699828f016829e00f8d00ebc2e526))
+* **deps:** bump actions/setup-node from 4.0.2 to 4.0.3 ([#461](https://github.com/taskmedia/action-conventional-commits/issues/461)) ([f0d9c8f](https://github.com/taskmedia/action-conventional-commits/commit/f0d9c8f3114765216094abc4416850553987f4dd))
+* **deps:** bump mikefarah/yq from 4.44.1 to 4.44.3 ([#473](https://github.com/taskmedia/action-conventional-commits/issues/473)) ([1a6d31b](https://github.com/taskmedia/action-conventional-commits/commit/1a6d31b37da97187373177ddcf07fa299d5ea9a7))
+* **deps:** bump prettier from 3.2.5 to 3.3.3 ([#462](https://github.com/taskmedia/action-conventional-commits/issues/462)) ([bd77677](https://github.com/taskmedia/action-conventional-commits/commit/bd776774d7036e345f847eac2e6dff0504509023))
+* **deps:** bump taskmedia/action-conventional-commits ([#441](https://github.com/taskmedia/action-conventional-commits/issues/441)) ([8be35c3](https://github.com/taskmedia/action-conventional-commits/commit/8be35c354b383fc80a45286ce4371fe5d8b2bfdb))
+
 ## [1.1.17](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.16...v1.1.17) (2024-05-13)
 
 
