@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.19](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.18...v1.1.19) (2024-10-15)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 22.5.5 to 22.7.4 ([#498](https://github.com/taskmedia/action-conventional-commits/issues/498)) ([d8c2209](https://github.com/taskmedia/action-conventional-commits/commit/d8c2209847d2923e18f4da8a73d71aff86e59c7b))
+* **deps-dev:** bump @types/node from 22.7.4 to 22.7.5 ([#501](https://github.com/taskmedia/action-conventional-commits/issues/501)) ([cb330d3](https://github.com/taskmedia/action-conventional-commits/commit/cb330d34ec1fac45d5efe60d3617aabbbaa3166a))
+* **deps-dev:** bump @vercel/ncc from 0.38.1 to 0.38.2 ([#494](https://github.com/taskmedia/action-conventional-commits/issues/494)) ([d7f0873](https://github.com/taskmedia/action-conventional-commits/commit/d7f0873beba705d21e92c76c66de3bcd0162089c))
+* **deps-dev:** bump braces from 3.0.2 to 3.0.3 ([#502](https://github.com/taskmedia/action-conventional-commits/issues/502)) ([fc59cb8](https://github.com/taskmedia/action-conventional-commits/commit/fc59cb8dd9a375524fb1cab9e1cc1387f11384b6))
+* **deps-dev:** bump eslint from 8.57.0 to 8.57.1 ([#490](https://github.com/taskmedia/action-conventional-commits/issues/490)) ([c77ce27](https://github.com/taskmedia/action-conventional-commits/commit/c77ce2703cd6fface1ba93b6b89c33fd3a68ef24))
+* **deps:** bump @actions/core from 1.10.1 to 1.11.0 ([#499](https://github.com/taskmedia/action-conventional-commits/issues/499)) ([f39342f](https://github.com/taskmedia/action-conventional-commits/commit/f39342f992bfaede4c7a8e41acb3011b394635ee))
+* **deps:** bump @actions/core from 1.11.0 to 1.11.1 ([#500](https://github.com/taskmedia/action-conventional-commits/issues/500)) ([9e9584b](https://github.com/taskmedia/action-conventional-commits/commit/9e9584bbdf6218310a2b141232d085414bcd352d))
+* **deps:** bump actions/setup-node from 4.0.3 to 4.0.4 ([#492](https://github.com/taskmedia/action-conventional-commits/issues/492)) ([f8856ea](https://github.com/taskmedia/action-conventional-commits/commit/f8856eabdae3ef4ae1c734ae8c8bc01f10a2b94e))
+* **deps:** bump eslint-plugin-prettier from 5.1.3 to 5.2.1 ([#489](https://github.com/taskmedia/action-conventional-commits/issues/489)) ([7a708ed](https://github.com/taskmedia/action-conventional-commits/commit/7a708ed821c1e581f5793a98fd3ca60bbc0c5ac8))
+* **deps:** bump taskmedia/action-conventional-commits ([#488](https://github.com/taskmedia/action-conventional-commits/issues/488)) ([3ab6ce7](https://github.com/taskmedia/action-conventional-commits/commit/3ab6ce7a5a2e36409012e499a3422228bd92494a))
+* **deps:** bump undici from 5.28.3 to 5.28.4 ([#504](https://github.com/taskmedia/action-conventional-commits/issues/504)) ([2d51c58](https://github.com/taskmedia/action-conventional-commits/commit/2d51c58e398f4706856dae745f9adbd53a34858a))
+* **deps:** bump ws from 7.5.9 to 7.5.10 ([#503](https://github.com/taskmedia/action-conventional-commits/issues/503)) ([dcb067b](https://github.com/taskmedia/action-conventional-commits/commit/dcb067b0becefb14f778d13a6b933c4db7c56d38))
+
 ## [1.1.18](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.17...v1.1.18) (2024-09-18)
 
 
