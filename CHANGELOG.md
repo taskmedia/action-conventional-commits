@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.20](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.19...v1.1.20) (2024-10-21)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 22.7.5 to 22.7.6 ([#506](https://github.com/taskmedia/action-conventional-commits/issues/506)) ([649f694](https://github.com/taskmedia/action-conventional-commits/commit/649f694c4c0effc04e6591d913fb29610a581486))
+* **deps-dev:** bump @types/node from 22.7.6 to 22.7.7 ([#508](https://github.com/taskmedia/action-conventional-commits/issues/508)) ([6dca39b](https://github.com/taskmedia/action-conventional-commits/commit/6dca39ba99957c0e320b72d5c3e97e6a7833b717))
+* **deps:** bump taskmedia/action-conventional-commits ([#505](https://github.com/taskmedia/action-conventional-commits/issues/505)) ([a58779d](https://github.com/taskmedia/action-conventional-commits/commit/a58779d9b217b5643939b4eec0a4cf4c530b8c77))
+
 ## [1.1.19](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.18...v1.1.19) (2024-10-15)
 
 
