@@ -36,6 +36,7 @@
     "prettier": "^3.3.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.13",
     "@types/node": "^22.9.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vercel/ncc": "^0.38.2",
