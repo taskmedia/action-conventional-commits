@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.1.20](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.19...v1.1.20) (2025-01-25)
+
+
+### Bug Fixes
+
+* add lodash and fix audit ([#520](https://github.com/taskmedia/action-conventional-commits/issues/520)) ([de03135](https://github.com/taskmedia/action-conventional-commits/commit/de03135d98dd4ca4042fe704e5bf5f841a297208))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/lodash from 4.17.13 to 4.17.14 ([#540](https://github.com/taskmedia/action-conventional-commits/issues/540)) ([67d367f](https://github.com/taskmedia/action-conventional-commits/commit/67d367fa210e1bb50e926699125a9d653192f260))
+* **deps-dev:** bump @types/node from 22.10.2 to 22.10.10 ([#549](https://github.com/taskmedia/action-conventional-commits/issues/549)) ([438719c](https://github.com/taskmedia/action-conventional-commits/commit/438719c11efee0635ff160ff6e14252c2593c56c))
+* **deps-dev:** bump @types/node from 22.7.5 to 22.7.6 ([#506](https://github.com/taskmedia/action-conventional-commits/issues/506)) ([649f694](https://github.com/taskmedia/action-conventional-commits/commit/649f694c4c0effc04e6591d913fb29610a581486))
+* **deps-dev:** bump @types/node from 22.7.6 to 22.7.7 ([#508](https://github.com/taskmedia/action-conventional-commits/issues/508)) ([6dca39b](https://github.com/taskmedia/action-conventional-commits/commit/6dca39ba99957c0e320b72d5c3e97e6a7833b717))
+* **deps-dev:** bump @types/node from 22.7.7 to 22.8.2 ([#513](https://github.com/taskmedia/action-conventional-commits/issues/513)) ([6a7510f](https://github.com/taskmedia/action-conventional-commits/commit/6a7510fd3bb683697adf593e5410aa84cdfa61f6))
+* **deps-dev:** bump @types/node from 22.8.2 to 22.8.6 ([#516](https://github.com/taskmedia/action-conventional-commits/issues/516)) ([78425e4](https://github.com/taskmedia/action-conventional-commits/commit/78425e49c31d7ea53d3a1bdcaa21252a1dcb67c0))
+* **deps-dev:** bump @types/node from 22.8.6 to 22.9.0 ([#518](https://github.com/taskmedia/action-conventional-commits/issues/518)) ([f64d679](https://github.com/taskmedia/action-conventional-commits/commit/f64d679084bc76c4dec573cdd0ae1237612b88b2))
+* **deps-dev:** bump @types/node from 22.9.0 to 22.10.2 ([#534](https://github.com/taskmedia/action-conventional-commits/issues/534)) ([86fea7c](https://github.com/taskmedia/action-conventional-commits/commit/86fea7c9f488d6f4210fb48924d1c407eee30145))
+* **deps-dev:** bump @vercel/ncc from 0.38.2 to 0.38.3 ([#521](https://github.com/taskmedia/action-conventional-commits/issues/521)) ([2084c0d](https://github.com/taskmedia/action-conventional-commits/commit/2084c0d665e8dfc7ccc5b2d694e6c26dd13d4c85))
+* **deps-dev:** bump eslint-plugin-github from 5.0.2 to 5.1.5 ([#537](https://github.com/taskmedia/action-conventional-commits/issues/537)) ([6dda8a8](https://github.com/taskmedia/action-conventional-commits/commit/6dda8a81a7342d40827e1d62ace0978e3064a78d))
+* **deps-dev:** bump husky from 9.1.6 to 9.1.7 ([#523](https://github.com/taskmedia/action-conventional-commits/issues/523)) ([ba35ecf](https://github.com/taskmedia/action-conventional-commits/commit/ba35ecf3d5cdf208d12aa0a52939e763d799514f))
+* **deps:** bump actions/setup-node from 4.0.4 to 4.1.0 ([#511](https://github.com/taskmedia/action-conventional-commits/issues/511)) ([3f6f79c](https://github.com/taskmedia/action-conventional-commits/commit/3f6f79c6736a4ed4da64a4a73b4421afa55b96fd))
+* **deps:** bump eslint-plugin-prettier from 5.2.1 to 5.2.3 ([#547](https://github.com/taskmedia/action-conventional-commits/issues/547)) ([dbd8afa](https://github.com/taskmedia/action-conventional-commits/commit/dbd8aface1807ab904fec746c76cb785e7aed39f))
+* **deps:** bump mikefarah/yq from 4.44.3 to 4.44.6 ([#533](https://github.com/taskmedia/action-conventional-commits/issues/533)) ([cfba838](https://github.com/taskmedia/action-conventional-commits/commit/cfba8384fb1d6809471ae5e7c5f3766fee1421d6))
+* **deps:** bump mikefarah/yq from 4.44.6 to 4.45.1 ([#542](https://github.com/taskmedia/action-conventional-commits/issues/542)) ([36facbe](https://github.com/taskmedia/action-conventional-commits/commit/36facbe55abe47ce461a4c665c7d33938083cd29))
+* **deps:** bump prettier from 3.3.3 to 3.4.2 ([#536](https://github.com/taskmedia/action-conventional-commits/issues/536)) ([ea22215](https://github.com/taskmedia/action-conventional-commits/commit/ea2221500d9a91f5246e1590201a5643c2e81597))
+* **deps:** bump taskmedia/action-conventional-commits ([#505](https://github.com/taskmedia/action-conventional-commits/issues/505)) ([a58779d](https://github.com/taskmedia/action-conventional-commits/commit/a58779d9b217b5643939b4eec0a4cf4c530b8c77))
+
 ## [1.1.19](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.18...v1.1.19) (2024-10-15)
 
 
