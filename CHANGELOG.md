@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.21](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.20...v1.1.21) (2025-02-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/setup-node from 4.1.0 to 4.2.0 ([#551](https://github.com/taskmedia/action-conventional-commits/issues/551)) ([ec69fb7](https://github.com/taskmedia/action-conventional-commits/commit/ec69fb716a06f039634a8a40ecf36651c79cba8b))
+
 ## [1.1.20](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.19...v1.1.20) (2025-01-25)
 
 
