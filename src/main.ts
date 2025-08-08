@@ -1,6 +1,13 @@
 import * as github from '@actions/github'
 import * as core from '@actions/core'
 import * as cc from './conventionalcommit'
+import {addLabels} from './label'
+
+const gh_token = core.getInput('token')
+export const octokit = github.getOctokit(gh_token)
+
+export const owner = github.context.repo.owner
+export const repo = github.context.repo.repo
 
 async function run(): Promise<void> {
   try {
@@ -67,6 +74,18 @@ async function run(): Promise<void> {
       commits.push(commit)
     }
 
+    const isLabel = core.getInput('label')
+    if (isLabel) {
+      if (!github.context.payload.pull_request) {
+        core.info(
+          `🔖 action was not triggered from pull request - skipping labeling`
+        )
+      }
+
+      core.info(`🔖 labeling semVer to pull request`)
+      addLabels(versionType)
+    }
+
     core.setOutput('breaking_commit', hasBreakingCommit)
     core.setOutput('breaking_msg', breaking_msg)
     core.setOutput('commits', JSON.stringify(commits))
@@ -85,9 +104,6 @@ async function run(): Promise<void> {
 async function receiveCommits(): Promise<String[]> {
   const commits: String[] = []
 
-  const gh_token = core.getInput('token')
-  const octokit = github.getOctokit(gh_token)
-
   // Extract commits from push event
   if (github.context.payload.commits != null) {
     core.debug('Extracting commits from push event')
@@ -100,8 +116,8 @@ async function receiveCommits(): Promise<String[]> {
   // Extract commits from pull request
   core.debug('Extracting commits from pull request')
   const {data: commit_list} = await octokit.rest.pulls.listCommits({
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo,
+    owner,
+    repo,
     pull_number: github.context.issue.number
   })
 
