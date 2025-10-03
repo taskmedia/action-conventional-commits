@@ -1,4 +1,4 @@
-import {escapeRegExp} from 'lodash'
+import escapeRegExp from 'lodash.escaperegexp'
 
 export class conventionalcommit {
   invalid: boolean
