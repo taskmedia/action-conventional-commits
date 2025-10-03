@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.21](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.20...v1.1.21) (2025-10-03)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/checkout from 4 to 5 ([#623](https://github.com/taskmedia/action-conventional-commits/issues/623)) ([c54e478](https://github.com/taskmedia/action-conventional-commits/commit/c54e47875dce646fc7a0978c110ce0b23dd8f613))
+* **deps:** bump actions/setup-node from 4.1.0 to 4.2.0 ([#551](https://github.com/taskmedia/action-conventional-commits/issues/551)) ([ec69fb7](https://github.com/taskmedia/action-conventional-commits/commit/ec69fb716a06f039634a8a40ecf36651c79cba8b))
+* **deps:** bump actions/setup-node from 4.2.0 to 4.3.0 ([#569](https://github.com/taskmedia/action-conventional-commits/issues/569)) ([09f8885](https://github.com/taskmedia/action-conventional-commits/commit/09f8885f46b0539e29f575aa6bc758e9e7e9c654))
+* **deps:** bump actions/setup-node from 4.3.0 to 4.4.0 ([#578](https://github.com/taskmedia/action-conventional-commits/issues/578)) ([2bbb524](https://github.com/taskmedia/action-conventional-commits/commit/2bbb5241668f9f56e5b21bb0c384dea882b38f57))
+* **deps:** bump actions/setup-node from 4.4.0 to 5.0.0 ([#625](https://github.com/taskmedia/action-conventional-commits/issues/625)) ([c225264](https://github.com/taskmedia/action-conventional-commits/commit/c225264e774dabc898a3121aff594f3595ea5842))
+* **deps:** bump cross-spawn from 7.0.3 to 7.0.6 ([#594](https://github.com/taskmedia/action-conventional-commits/issues/594)) ([2c0e22a](https://github.com/taskmedia/action-conventional-commits/commit/2c0e22a8123f7025b350bc987691358d51586554))
+* **deps:** bump mikefarah/yq from 4.45.1 to 4.45.4 ([#589](https://github.com/taskmedia/action-conventional-commits/issues/589)) ([00fd5f0](https://github.com/taskmedia/action-conventional-commits/commit/00fd5f0eb6a624ec6c209dc31d38de16f238e620))
+* **deps:** bump mikefarah/yq from 4.45.4 to 4.46.1 ([#617](https://github.com/taskmedia/action-conventional-commits/issues/617)) ([12c010e](https://github.com/taskmedia/action-conventional-commits/commit/12c010ef75cd5daf6c5d9a2925214c981646d6c5))
+* **deps:** bump mikefarah/yq from 4.46.1 to 4.47.1 ([#619](https://github.com/taskmedia/action-conventional-commits/issues/619)) ([a1f32c5](https://github.com/taskmedia/action-conventional-commits/commit/a1f32c577b53d729636bdede60854350b17ef665))
+* **deps:** bump mikefarah/yq from 4.47.1 to 4.47.2 ([#627](https://github.com/taskmedia/action-conventional-commits/issues/627)) ([ebae634](https://github.com/taskmedia/action-conventional-commits/commit/ebae6341c878b6c52e06fe89e281ff585239bfdb))
+* **deps:** bump taskmedia/action-conventional-commits ([#552](https://github.com/taskmedia/action-conventional-commits/issues/552)) ([8d07366](https://github.com/taskmedia/action-conventional-commits/commit/8d07366308586c0fd06959384b1a8184bf4d9c8c))
+
 ## [1.1.20](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.19...v1.1.20) (2025-01-25)
 
 
