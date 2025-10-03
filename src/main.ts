@@ -82,8 +82,8 @@ async function run(): Promise<void> {
   }
 }
 
-async function receiveCommits(): Promise<String[]> {
-  const commits: String[] = []
+async function receiveCommits(): Promise<string[]> {
+  const commits: string[] = []
 
   const gh_token = core.getInput('token')
   const octokit = github.getOctokit(gh_token)
