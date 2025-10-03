@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.22](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.21...v1.1.22) (2025-10-03)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @typescript-eslint/parser from 5.62.0 to 8.45.0 ([#637](https://github.com/taskmedia/action-conventional-commits/issues/637)) ([1e067cf](https://github.com/taskmedia/action-conventional-commits/commit/1e067cf297d0b6a35ae45b3f12dc04d616a00aa2))
+* **deps-dev:** bump eslint from 8.57.1 to 9.36.0 ([#631](https://github.com/taskmedia/action-conventional-commits/issues/631)) ([45938c0](https://github.com/taskmedia/action-conventional-commits/commit/45938c079a13ef1e9485325abca2cbc2fb7b8123))
+* **deps-dev:** bump eslint-plugin-github from 5.1.8 to 6.0.0 ([#638](https://github.com/taskmedia/action-conventional-commits/issues/638)) ([12796bc](https://github.com/taskmedia/action-conventional-commits/commit/12796bc4bde5e1e93f2d5fd07b9e0769f092c9a3))
+* **deps-dev:** bump jest from 29.7.0 to 30.2.0 ([#635](https://github.com/taskmedia/action-conventional-commits/issues/635)) ([397d089](https://github.com/taskmedia/action-conventional-commits/commit/397d089f3d662260d9e362b923994fd413e02b53))
+* **deps:** bump stefanzweifel/git-auto-commit-action from 5 to 6 ([#603](https://github.com/taskmedia/action-conventional-commits/issues/603)) ([1aa6028](https://github.com/taskmedia/action-conventional-commits/commit/1aa6028fb187d24e247173bb9417f4d7159a5eb2))
+* update eslint, husky, deps ([#633](https://github.com/taskmedia/action-conventional-commits/issues/633)) ([db62f66](https://github.com/taskmedia/action-conventional-commits/commit/db62f66e58fd0943ba23902e3fb873827ab0d91b))
+
 ## [1.1.21](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.20...v1.1.21) (2025-10-03)
 
 
