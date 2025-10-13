@@ -45,7 +45,7 @@ jobs:
         versioning_enabled: "true"
 
     - name: commit changes
-      uses: stefanzweifel/git-auto-commit-action@v6
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "chore(doc): autoupdated README"
         file_pattern: README.md
