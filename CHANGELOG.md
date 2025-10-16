@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.23](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.22...v1.1.23) (2025-10-16)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 24.6.2 to 24.7.2 ([#646](https://github.com/taskmedia/action-conventional-commits/issues/646)) ([882ff6b](https://github.com/taskmedia/action-conventional-commits/commit/882ff6b12dd61ff7d21ac1bcd2eaf242775fbd12))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#651](https://github.com/taskmedia/action-conventional-commits/issues/651)) ([3471a8f](https://github.com/taskmedia/action-conventional-commits/commit/3471a8f8482db4ed7a32ec62987c78bf1ab580f6))
+* **deps-dev:** bump @typescript-eslint/parser from 8.45.0 to 8.46.1 ([#650](https://github.com/taskmedia/action-conventional-commits/issues/650)) ([803dcab](https://github.com/taskmedia/action-conventional-commits/commit/803dcabce12668f3cfe86d7a2d139029a77048c8))
+* **deps-dev:** bump eslint from 9.36.0 to 9.37.0 ([#640](https://github.com/taskmedia/action-conventional-commits/issues/640)) ([b46ed72](https://github.com/taskmedia/action-conventional-commits/commit/b46ed72dfda11ad23bb3d467f595ce5530c4ccf4))
+* **deps-dev:** bump ts-jest from 29.4.4 to 29.4.5 ([#649](https://github.com/taskmedia/action-conventional-commits/issues/649)) ([215b68d](https://github.com/taskmedia/action-conventional-commits/commit/215b68df05a29afc8144b46d504162523fff542d))
+* **deps:** bump github/codeql-action from 3 to 4 ([#644](https://github.com/taskmedia/action-conventional-commits/issues/644)) ([c12af92](https://github.com/taskmedia/action-conventional-commits/commit/c12af92f6daed72b2c9d84e309e62869cafd333c))
+* **deps:** bump mikefarah/yq from 4.47.2 to 4.48.1 ([#647](https://github.com/taskmedia/action-conventional-commits/issues/647)) ([e5745e6](https://github.com/taskmedia/action-conventional-commits/commit/e5745e6cd24d197dda8e706280f3752bff70115c))
+* **deps:** bump stefanzweifel/git-auto-commit-action from 6 to 7 ([#648](https://github.com/taskmedia/action-conventional-commits/issues/648)) ([b6e40a7](https://github.com/taskmedia/action-conventional-commits/commit/b6e40a7e48bd5b4fefd5f5c6aa5a3d8913d86be1))
+
 ## [1.1.22](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.21...v1.1.22) (2025-10-03)
 
 
