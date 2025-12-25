@@ -37,7 +37,7 @@
     "prettier": "^3.4.2"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.14",
+    "@types/lodash": "^4.17.21",
     "@types/node": "^25.0.3",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
