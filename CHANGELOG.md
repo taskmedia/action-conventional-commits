@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.24](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.23...v1.1.24) (2025-12-25)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 24.8.0 to 24.9.2 ([#660](https://github.com/taskmedia/action-conventional-commits/issues/660)) ([77fe817](https://github.com/taskmedia/action-conventional-commits/commit/77fe8171ef901a2be4930acc9a5a14fd10b5c699))
+* **deps-dev:** bump @types/node from 24.9.2 to 25.0.3 ([#665](https://github.com/taskmedia/action-conventional-commits/issues/665)) ([57dbc5b](https://github.com/taskmedia/action-conventional-commits/commit/57dbc5bd21b1c23aacb8650235519d624050c3f4))
+* **deps-dev:** bump eslint from 9.37.0 to 9.39.2 ([#667](https://github.com/taskmedia/action-conventional-commits/issues/667)) ([29ecd0c](https://github.com/taskmedia/action-conventional-commits/commit/29ecd0c92c0b378b66107a3a2a505bae227dcc26))
+* **deps-dev:** bump eslint-plugin-jest from 29.0.1 to 29.11.0 ([#669](https://github.com/taskmedia/action-conventional-commits/issues/669)) ([a84195a](https://github.com/taskmedia/action-conventional-commits/commit/a84195abb15ccb2f5d33bc89231aa93725a1f10c))
+* **deps-dev:** bump js-yaml from 4.1.0 to 4.1.1 ([#670](https://github.com/taskmedia/action-conventional-commits/issues/670)) ([3293eb0](https://github.com/taskmedia/action-conventional-commits/commit/3293eb0e682d3bcb38b0cbe2c23cb75cca6f61e7))
+* **deps:** bump @actions/core from 1.11.1 to 2.0.1 ([#668](https://github.com/taskmedia/action-conventional-commits/issues/668)) ([af0c728](https://github.com/taskmedia/action-conventional-commits/commit/af0c7286c3677f56dabc2f4ded6a12ef2c9788e9))
+* **deps:** bump actions/checkout from 5 to 6 ([#662](https://github.com/taskmedia/action-conventional-commits/issues/662)) ([34221d9](https://github.com/taskmedia/action-conventional-commits/commit/34221d9f1950ba701db6e9ef1d8680e63e88900f))
+* **deps:** bump actions/upload-artifact from 4 to 5 ([#659](https://github.com/taskmedia/action-conventional-commits/issues/659)) ([8be396a](https://github.com/taskmedia/action-conventional-commits/commit/8be396a546d7705a1a980e7d0bfb2e1d27b79d13))
+* **deps:** bump actions/upload-artifact from 5 to 6 ([#664](https://github.com/taskmedia/action-conventional-commits/issues/664)) ([9bd2e9e](https://github.com/taskmedia/action-conventional-commits/commit/9bd2e9e6520e1f77833fa47e3c53e7c2464c1eb8))
+* **deps:** bump mikefarah/yq from 4.48.1 to 4.48.2 ([#661](https://github.com/taskmedia/action-conventional-commits/issues/661)) ([0de5896](https://github.com/taskmedia/action-conventional-commits/commit/0de5896f2fbdeb59f31f6d8cc0a884aa75fba767))
+* **deps:** bump mikefarah/yq from 4.48.2 to 4.50.1 ([#666](https://github.com/taskmedia/action-conventional-commits/issues/666)) ([894b466](https://github.com/taskmedia/action-conventional-commits/commit/894b4664b9b0ae793416eccccdf1a42e32f8fc38))
+
 ## [1.1.23](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.22...v1.1.23) (2025-10-16)
 
 
