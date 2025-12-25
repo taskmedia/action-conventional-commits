@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.25](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.24...v1.1.25) (2025-12-25)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/lodash from 4.17.20 to 4.17.21 ([#671](https://github.com/taskmedia/action-conventional-commits/issues/671)) ([adcfe1a](https://github.com/taskmedia/action-conventional-commits/commit/adcfe1a7ffab54d2735ae7b13e32cbc7971de034))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#673](https://github.com/taskmedia/action-conventional-commits/issues/673)) ([dec7f60](https://github.com/taskmedia/action-conventional-commits/commit/dec7f609495b97ea0735f81b62f6645953a0fc67))
+* **deps-dev:** bump ts-jest from 29.4.5 to 29.4.6 ([#675](https://github.com/taskmedia/action-conventional-commits/issues/675)) ([314bdad](https://github.com/taskmedia/action-conventional-commits/commit/314bdada44cba4e21b9151b77a5821f25fa6f143))
+* **deps:** bump prettier from 3.6.2 to 3.7.4 ([#672](https://github.com/taskmedia/action-conventional-commits/issues/672)) ([9e9bec2](https://github.com/taskmedia/action-conventional-commits/commit/9e9bec2200207f8d22ad06d203926a0f57789528))
+* force glob to patched release ([#677](https://github.com/taskmedia/action-conventional-commits/issues/677)) ([7f3f62d](https://github.com/taskmedia/action-conventional-commits/commit/7f3f62d1df169264315e58f119ea1e130b4e57a5))
+
 ## [1.1.24](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.23...v1.1.24) (2025-12-25)
 
 
