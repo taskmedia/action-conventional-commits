@@ -1,6 +1,6 @@
 {
   "name": "action-conventional-commits",
-  "version": "1.1.25",
+  "version": "1.1.26",
   "private": true,
   "description": "Check if your PR commits matching with conventionalcommits",
   "main": "lib/main.js",
@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^2.0.2",
-    "@actions/github": "^7.0.0",
+    "@actions/github": "^6.0.0",
     "@types/lodash.escaperegexp": "^4.1.9",
     "eslint-plugin-prettier": "^5.2.3",
     "lodash.escaperegexp": "^4.1.2",
