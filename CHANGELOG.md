@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.26](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.25...v1.1.26) (2026-01-15)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#684](https://github.com/taskmedia/action-conventional-commits/issues/684)) ([96872f2](https://github.com/taskmedia/action-conventional-commits/commit/96872f2aaa9d025ca45c327733df7ba6f7666642))
+* **deps-dev:** bump @typescript-eslint/parser from 8.50.1 to 8.52.0 ([#685](https://github.com/taskmedia/action-conventional-commits/issues/685)) ([118a9d3](https://github.com/taskmedia/action-conventional-commits/commit/118a9d37378a79d15561c584186b2c41d11dddd9))
+* **deps-dev:** bump eslint-plugin-jest from 29.11.0 to 29.12.1 ([#683](https://github.com/taskmedia/action-conventional-commits/issues/683)) ([f42e89f](https://github.com/taskmedia/action-conventional-commits/commit/f42e89f8e97bcd31db59cd3f53547c928cecd44b))
+* **deps:** bump @actions/core from 2.0.1 to 2.0.2 ([#686](https://github.com/taskmedia/action-conventional-commits/issues/686)) ([ec2bbc9](https://github.com/taskmedia/action-conventional-commits/commit/ec2bbc976b3fb281c4261452de00b827bca1d200))
+* **deps:** bump @actions/github from 6.0.1 to 7.0.0 ([#687](https://github.com/taskmedia/action-conventional-commits/issues/687)) ([a71d9b6](https://github.com/taskmedia/action-conventional-commits/commit/a71d9b6e477c41b11f8e219a47716ec628f09907))
+
 ## [1.1.25](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.24...v1.1.25) (2025-12-25)
 
 
