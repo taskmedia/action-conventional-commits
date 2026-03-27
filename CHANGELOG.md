@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.27](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.26...v1.1.27) (2026-03-11)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#697](https://github.com/taskmedia/action-conventional-commits/issues/697)) ([8abc38c](https://github.com/taskmedia/action-conventional-commits/commit/8abc38c02679a5a0c07ec565ef4204559d33ea42))
+* **deps-dev:** bump @typescript-eslint/parser from 8.53.0 to 8.55.0 ([#698](https://github.com/taskmedia/action-conventional-commits/issues/698)) ([7baa957](https://github.com/taskmedia/action-conventional-commits/commit/7baa957618c533402a015d79e0dfc446025eedea))
+* **deps-dev:** bump eslint-plugin-jest from 29.12.1 to 29.15.0 ([#699](https://github.com/taskmedia/action-conventional-commits/issues/699)) ([fcc4133](https://github.com/taskmedia/action-conventional-commits/commit/fcc4133a754a18478f333424b2767de0520e0d40))
+* **deps:** bump actions/upload-artifact from 6 to 7 ([#701](https://github.com/taskmedia/action-conventional-commits/issues/701)) ([116f154](https://github.com/taskmedia/action-conventional-commits/commit/116f154641941a5276248c49ede3c39653efd309))
+* **deps:** bump mikefarah/yq from 4.52.2 to 4.52.4 ([#695](https://github.com/taskmedia/action-conventional-commits/issues/695)) ([4c10c36](https://github.com/taskmedia/action-conventional-commits/commit/4c10c360c4a7a0a325c55c62710fe57115eb1911))
+
 ## [1.1.26](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.25...v1.1.26) (2026-02-13)
 
 
