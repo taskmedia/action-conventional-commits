@@ -4,6 +4,10 @@ description: |
   See: https://conventionalcommits.org/
 author: "taskmedia"
 inputs:
+  label:
+    default: "false"
+    description: "indicate if semVer labels should be added to the PR"
+    required: false
   token:
     default: "${{ github.token }}"
     description: "token to access GitHub API to receive PR commits"
