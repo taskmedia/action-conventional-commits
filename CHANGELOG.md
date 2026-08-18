@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.1...v1.2.2) (2026-08-18)
+
+
+### Bug Fixes
+
+* force git rm on orphan branch to handle modified package-lock.json ([#737](https://github.com/taskmedia/action-conventional-commits/issues/737)) ([fcc00d7](https://github.com/taskmedia/action-conventional-commits/commit/fcc00d7cbcd2cac728cc694f09096dbd5389d302))
+
 ## [1.2.1](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.0...v1.2.1) (2026-08-18)
 
 
