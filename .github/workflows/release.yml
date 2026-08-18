@@ -91,7 +91,7 @@ jobs:
       if: ${{ steps.rpa.outputs.release_created }}
       shell: bash
       env:
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ secrets.PAT }}
       run: |
         COMMIT_MAIN=$(git rev-parse HEAD)
         echo "::debug::COMMIT_MAIN> ${COMMIT_MAIN}"
