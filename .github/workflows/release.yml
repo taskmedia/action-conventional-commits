@@ -85,7 +85,7 @@ jobs:
       shell: bash
       run: task release
 
-    - name: update release (use orpahn commit)
+    - name: update release (use orphan commit)
       if: ${{ steps.rpa.outputs.release_created }}
       shell: bash
       env:
@@ -93,6 +93,9 @@ jobs:
       run: |
         COMMIT_MAIN=$(git rev-parse HEAD)
         echo "::debug::COMMIT_MAIN> ${COMMIT_MAIN}"
+
+        echo "::debug::clearing staged changes from build step"
+        git reset HEAD
 
         echo "::debug::creating orphan branch"
         git checkout --orphan release
