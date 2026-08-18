@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.2...v1.2.3) (2026-08-18)
+
+
+### Bug Fixes
+
+* use PAT for checkout to bypass bot push protection on tag force-push ([#740](https://github.com/taskmedia/action-conventional-commits/issues/740)) ([fbd1183](https://github.com/taskmedia/action-conventional-commits/commit/fbd11830db9d117de64719c95bc5e6188c161e62))
+
 ## [1.2.2](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.1...v1.2.2) (2026-08-18)
 
 
