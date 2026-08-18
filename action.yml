@@ -34,7 +34,7 @@ outputs:
   version_type:
     description: "semantic versioning indicator (patch, minor or major)"
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
 branding:
   icon: "git-pull-request"
