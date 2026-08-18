@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.0...v1.2.1) (2026-08-18)
+
+
+### Bug Fixes
+
+* clear staged index before orphan checkout ([#735](https://github.com/taskmedia/action-conventional-commits/issues/735)) ([1df3204](https://github.com/taskmedia/action-conventional-commits/commit/1df32049afcfbf6f79d58be4568a9447a695ae0a))
+
 ## [1.2.0](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.26...v1.2.0) (2026-08-18)
 
 
