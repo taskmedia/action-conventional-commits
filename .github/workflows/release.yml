@@ -22,6 +22,8 @@ jobs:
     steps:
     - name: checkout repository
       uses: actions/checkout@v7
+      with:
+        token: ${{ secrets.RELEASE_TOKEN }}
 
     # because releases are orphan commits (no history) relase-plase needs a
     # base commit to create the diff from. Because of that the release contains
