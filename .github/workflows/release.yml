@@ -111,20 +111,24 @@ jobs:
           -m "chore: release ${{ steps.rpa.outputs.tag_name }} (orphan)"
 
         echo "::debug::pushing tag ${{ steps.rpa.outputs.tag_name }}"
-        git tag "${{ steps.rpa.outputs.tag_name }}" --force
-        git push origin "${{ steps.rpa.outputs.tag_name }}" --force
+        gh api repos/${{ github.repository }}/git/refs/tags/${{ steps.rpa.outputs.tag_name }} --method DELETE 2>/dev/null || true
+        git tag "${{ steps.rpa.outputs.tag_name }}"
+        git push origin "${{ steps.rpa.outputs.tag_name }}"
 
         echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
-        git tag "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --force
-        git push origin "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --force
+        gh api "repos/${{ github.repository }}/git/refs/tags/v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --method DELETE 2>/dev/null || true
+        git tag "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
+        git push origin "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
 
         echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}"
-        git tag "v${{ steps.rpa.outputs.major }}" --force
-        git push origin "v${{ steps.rpa.outputs.major }}" --force
+        gh api "repos/${{ github.repository }}/git/refs/tags/v${{ steps.rpa.outputs.major }}" --method DELETE 2>/dev/null || true
+        git tag "v${{ steps.rpa.outputs.major }}"
+        git push origin "v${{ steps.rpa.outputs.major }}"
 
         echo "::debug::pushing tag latest"
-        git tag latest --force
-        git push origin latest --force
+        gh api repos/${{ github.repository }}/git/refs/tags/latest --method DELETE 2>/dev/null || true
+        git tag latest
+        git push origin latest
 
 
         echo "::debug::reading gh release body ${{ steps.rpa.outputs.tag_name }}"
