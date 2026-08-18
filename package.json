@@ -9,7 +9,7 @@
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt",
+    "package": "esbuild src/main.ts --bundle --platform=node --outfile=dist/index.js --sourcemap --minify",
     "test": "jest",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
     "prepare": "husky install"
@@ -42,7 +42,7 @@
     "@types/node": "^26.2.0",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.55.0",
-    "@vercel/ncc": "^0.38.3",
+    "esbuild": "^0.28.2",
     "eslint": "^10.8.1",
     "eslint-plugin-github": "^6.1.2",
     "eslint-plugin-jest": "^29.16.1",
