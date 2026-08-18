@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.2.0](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.26...v1.2.0) (2026-08-18)
+
+
+### Bug Fixes
+
+* **deps:** pin @babel/core to &gt;=7.29.6 to remediate CVE ([#734](https://github.com/taskmedia/action-conventional-commits/issues/734)) ([be20194](https://github.com/taskmedia/action-conventional-commits/commit/be2019490219d8d19c3546f258f3ee1a8928bdc8))
+* pin js-yaml to &gt;=3.15.1 via npm override to resolve CVE ([#729](https://github.com/taskmedia/action-conventional-commits/issues/729)) ([0410d71](https://github.com/taskmedia/action-conventional-commits/commit/0410d715086d48092c948db66f023bebcded3813))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/lodash from 4.17.23 to 4.17.24 ([#705](https://github.com/taskmedia/action-conventional-commits/issues/705)) ([cfe5ba4](https://github.com/taskmedia/action-conventional-commits/commit/cfe5ba46452457453fdf0b54df601cfa22eb1b45))
+* **deps-dev:** bump @types/lodash from 4.17.24 to 4.17.25 ([#723](https://github.com/taskmedia/action-conventional-commits/issues/723)) ([33b6e1d](https://github.com/taskmedia/action-conventional-commits/commit/33b6e1dcfb9cc79b44acf5f283b75e054737a8b1))
+* **deps-dev:** bump @types/node from 25.2.3 to 26.2.0 ([#703](https://github.com/taskmedia/action-conventional-commits/issues/703)) ([90d4248](https://github.com/taskmedia/action-conventional-commits/commit/90d424870681f4b829d6db74a9446a4fb43eb7a3))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#697](https://github.com/taskmedia/action-conventional-commits/issues/697)) ([8abc38c](https://github.com/taskmedia/action-conventional-commits/commit/8abc38c02679a5a0c07ec565ef4204559d33ea42))
+* **deps-dev:** bump @typescript-eslint/parser from 8.53.0 to 8.55.0 ([#698](https://github.com/taskmedia/action-conventional-commits/issues/698)) ([7baa957](https://github.com/taskmedia/action-conventional-commits/commit/7baa957618c533402a015d79e0dfc446025eedea))
+* **deps-dev:** bump brace-expansion from 1.1.12 to 1.1.18 ([#727](https://github.com/taskmedia/action-conventional-commits/issues/727)) ([b8cf06d](https://github.com/taskmedia/action-conventional-commits/commit/b8cf06d05515fda516d02d91b40a05f12d72d5e9))
+* **deps-dev:** bump eslint from 9.39.2 to 10.8.1 ([#719](https://github.com/taskmedia/action-conventional-commits/issues/719)) ([6dd3361](https://github.com/taskmedia/action-conventional-commits/commit/6dd3361007da950d5b493d75d07631c062125e25))
+* **deps-dev:** bump eslint-plugin-github from 6.0.0 to 6.1.2 ([#714](https://github.com/taskmedia/action-conventional-commits/issues/714)) ([829e8d9](https://github.com/taskmedia/action-conventional-commits/commit/829e8d9e8e261c6529ddb65caac63900c1904b55))
+* **deps-dev:** bump eslint-plugin-jest from 29.12.1 to 29.15.0 ([#699](https://github.com/taskmedia/action-conventional-commits/issues/699)) ([fcc4133](https://github.com/taskmedia/action-conventional-commits/commit/fcc4133a754a18478f333424b2767de0520e0d40))
+* **deps-dev:** bump eslint-plugin-jest from 29.15.0 to 29.16.1 ([#718](https://github.com/taskmedia/action-conventional-commits/issues/718)) ([379ede2](https://github.com/taskmedia/action-conventional-commits/commit/379ede2b5059bf4e42d9dd2b49120fd23d637266))
+* **deps-dev:** bump handlebars from 4.7.8 to 4.7.9 ([#725](https://github.com/taskmedia/action-conventional-commits/issues/725)) ([5f12f48](https://github.com/taskmedia/action-conventional-commits/commit/5f12f48d5d5df8e2e42984ab436f03cfc0ad4195))
+* **deps-dev:** bump js-yaml from 4.3.1 to 5.3.0 ([#713](https://github.com/taskmedia/action-conventional-commits/issues/713)) ([2747743](https://github.com/taskmedia/action-conventional-commits/commit/2747743dece4418bcfaf12d988dcf0389267ee48))
+* **deps-dev:** bump ts-jest from 29.4.6 to 29.4.12 ([#724](https://github.com/taskmedia/action-conventional-commits/issues/724)) ([0138f3f](https://github.com/taskmedia/action-conventional-commits/commit/0138f3fe48da95dbcb4cb8a612d313fe95a25060))
+* **deps:** bump @actions/core from 2.0.2 to 3.0.1 ([#712](https://github.com/taskmedia/action-conventional-commits/issues/712)) ([c530014](https://github.com/taskmedia/action-conventional-commits/commit/c53001459bb85d49ba14b6aa6f48ac1f68bf4d53))
+* **deps:** bump @actions/github from 7.0.0 to 9.1.1 ([#717](https://github.com/taskmedia/action-conventional-commits/issues/717)) ([48736a2](https://github.com/taskmedia/action-conventional-commits/commit/48736a23457df6c40f4357dc11becdde54e5a0d6))
+* **deps:** bump actions/checkout from 6 to 7 ([#716](https://github.com/taskmedia/action-conventional-commits/issues/716)) ([fb1dfb6](https://github.com/taskmedia/action-conventional-commits/commit/fb1dfb60a2d552714a6974e4187ca6d5b7c2871d))
+* **deps:** bump actions/setup-node from 5 to 7 ([#715](https://github.com/taskmedia/action-conventional-commits/issues/715)) ([6e92d3b](https://github.com/taskmedia/action-conventional-commits/commit/6e92d3b92055fc9a48108b18563ab17be7088f29))
+* **deps:** bump actions/upload-artifact from 6 to 7 ([#701](https://github.com/taskmedia/action-conventional-commits/issues/701)) ([116f154](https://github.com/taskmedia/action-conventional-commits/commit/116f154641941a5276248c49ede3c39653efd309))
+* **deps:** bump eslint-plugin-prettier from 5.5.5 to 5.5.6 ([#730](https://github.com/taskmedia/action-conventional-commits/issues/730)) ([5779d68](https://github.com/taskmedia/action-conventional-commits/commit/5779d687343756850c6e8eaf78a0c2db4bd8e2e1))
+* **deps:** bump flatted from 3.3.3 to 3.4.4 ([#726](https://github.com/taskmedia/action-conventional-commits/issues/726)) ([021b591](https://github.com/taskmedia/action-conventional-commits/commit/021b591f5a039e9766643fbeacddc87a3634a6dd))
+* **deps:** bump mikefarah/yq from 4.52.2 to 4.52.4 ([#695](https://github.com/taskmedia/action-conventional-commits/issues/695)) ([4c10c36](https://github.com/taskmedia/action-conventional-commits/commit/4c10c360c4a7a0a325c55c62710fe57115eb1911))
+* **deps:** bump mikefarah/yq from 4.52.4 to 4.53.3 ([#709](https://github.com/taskmedia/action-conventional-commits/issues/709)) ([20fcf59](https://github.com/taskmedia/action-conventional-commits/commit/20fcf59cd7c203f9bbb6c81b2122f45dc91371ba))
+* **deps:** bump minimatch ([#706](https://github.com/taskmedia/action-conventional-commits/issues/706)) ([fe41684](https://github.com/taskmedia/action-conventional-commits/commit/fe41684b8c7d1195e5789cc764ee24afb8302a3f))
+* **deps:** bump picomatch, jest, @jest/transform and babel-jest ([#728](https://github.com/taskmedia/action-conventional-commits/issues/728)) ([ad0bf88](https://github.com/taskmedia/action-conventional-commits/commit/ad0bf88fe80fe11a62910eecf7788b1c0c10c472))
+* **deps:** bump prettier from 3.8.1 to 3.9.6 ([#732](https://github.com/taskmedia/action-conventional-commits/issues/732)) ([53261d3](https://github.com/taskmedia/action-conventional-commits/commit/53261d35899a9d7f485f261ec354db5306b765d7))
+* upgrade Node.js runtime from node16 to node20 and CI from 20 to 24 ([#711](https://github.com/taskmedia/action-conventional-commits/issues/711)) ([f0ca0d4](https://github.com/taskmedia/action-conventional-commits/commit/f0ca0d4fe9ffb88391df71d0d0a957b8264d2a67))
+
 ## [1.1.26](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.25...v1.1.26) (2026-02-13)
 
 
