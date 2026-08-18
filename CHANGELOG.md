@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.3...v1.2.4) (2026-08-18)
+
+
+### Bug Fixes
+
+* use PAT for GH_TOKEN in release step to prevent gh credential helper override ([#742](https://github.com/taskmedia/action-conventional-commits/issues/742)) ([12242f6](https://github.com/taskmedia/action-conventional-commits/commit/12242f64f8dcd2b5312d577f07a29edc14de5227))
+
 ## [1.2.3](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.2...v1.2.3) (2026-08-18)
 
 
