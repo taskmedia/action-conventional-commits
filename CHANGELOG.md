@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.27](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.26...v1.1.27) (2026-08-18)
+## [1.2.0](https://github.com/taskmedia/action-conventional-commits/compare/v1.1.26...v1.2.0) (2026-08-18)
 
 
 ### Bug Fixes
