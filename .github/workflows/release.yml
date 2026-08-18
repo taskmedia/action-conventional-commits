@@ -96,7 +96,7 @@ jobs:
 
         echo "::debug::creating orphan branch"
         git checkout --orphan release
-        git rm --cached -r .
+        git rm --cached -rf .
         git add --force dist/ README.md LICENSE action.yml
 
         echo "::debug::configuring github user"
