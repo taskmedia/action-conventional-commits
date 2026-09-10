@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.5](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.4...v1.2.5) (2026-09-10)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 26.2.0 to 26.3.0 ([#751](https://github.com/taskmedia/action-conventional-commits/issues/751)) ([4fb657c](https://github.com/taskmedia/action-conventional-commits/commit/4fb657c57521df3f5b960b2f40caab280f2c9e01))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#750](https://github.com/taskmedia/action-conventional-commits/issues/750)) ([a6d1c8f](https://github.com/taskmedia/action-conventional-commits/commit/a6d1c8f65b308734e81133d797a5f5c7d8b6c995))
+* **deps-dev:** bump @typescript-eslint/parser from 8.67.0 to 8.68.0 ([#749](https://github.com/taskmedia/action-conventional-commits/issues/749)) ([5ff2fcd](https://github.com/taskmedia/action-conventional-commits/commit/5ff2fcdaebf936ca87f811dd2dbd04e897b1554b))
+* **deps-dev:** bump eslint from 10.8.1 to 10.9.1 ([#748](https://github.com/taskmedia/action-conventional-commits/issues/748)) ([35a93a7](https://github.com/taskmedia/action-conventional-commits/commit/35a93a747d485a35aca67494dfc3b320256242b4))
+* **deps-dev:** bump js-yaml from 5.3.0 to 5.4.0 ([#752](https://github.com/taskmedia/action-conventional-commits/issues/752)) ([230c321](https://github.com/taskmedia/action-conventional-commits/commit/230c321ab971ff7cafccc570c30b582ef25862f8))
+* **deps:** bump mikefarah/yq from 4.53.3 to 4.53.6 ([#745](https://github.com/taskmedia/action-conventional-commits/issues/745)) ([02ec91b](https://github.com/taskmedia/action-conventional-commits/commit/02ec91b17c0539c9cf58baa2f22bf7368cb9caed))
+
 ## [1.2.4](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.3...v1.2.4) (2026-08-18)
 
 
