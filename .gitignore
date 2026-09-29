@@ -104,5 +104,3 @@ src/*.js
 # Act
 act/local.secrets
 
-# binary
-dist/
