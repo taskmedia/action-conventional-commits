@@ -25,9 +25,8 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
 
-    # because releases are orphan commits (no history) relase-plase needs a
-    # base commit to create the diff from. Because of that the release contains
-    # the commit sha inside a HTML comment at the bottom of the release body.
+    # release-please needs a base commit to create the changelog diff from.
+    # The SHA is stored as an HTML comment in the release body.
     - name: fetch commit of latest release
       shell: bash
       id: base-commit
@@ -48,8 +47,6 @@ jobs:
       id: rpa
       with:
         last-release-sha: ${{ steps.base-commit.outputs.sha }}
-        # prerelease will be published later from orphan commit
-        prerelease: true
         release-type: node
         pull-request-title-pattern: "chore(release): ${component} ${version}"
         changelog-types: >
@@ -76,77 +73,42 @@ jobs:
           echo "::debug::NO headBranchName found"
         fi
 
-    - name: install Task
-      if: ${{ steps.rpa.outputs.release_created }}
-      shell: bash
-      run: |
-        sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
-
-    - name: built binaries
-      if: ${{ steps.rpa.outputs.release_created }}
-      shell: bash
-      run: task release
-
-    - name: update release (use orphan commit)
+    - name: update release
       if: ${{ steps.rpa.outputs.release_created }}
       shell: bash
       env:
         GH_TOKEN: ${{ secrets.PAT }}
       run: |
         COMMIT_MAIN=$(git rev-parse HEAD)
-        echo "::debug::COMMIT_MAIN> ${COMMIT_MAIN}"
 
-        echo "::debug::clearing staged changes from build step"
-        git reset HEAD
-
-        echo "::debug::creating orphan branch"
-        git checkout --orphan release
-        git rm --cached -rf .
-        git add --force dist/ README.md LICENSE action.yml
-
-        echo "::debug::configuring github user"
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-        echo "::debug::creating orphan release commit"
-        git commit \
-          -m "chore: release ${{ steps.rpa.outputs.tag_name }} (orphan)"
-
-        echo "::debug::pushing tag ${{ steps.rpa.outputs.tag_name }}"
-        gh api repos/${{ github.repository }}/git/refs/tags/${{ steps.rpa.outputs.tag_name }} --method DELETE 2>/dev/null || true
-        git tag "${{ steps.rpa.outputs.tag_name }}"
-        git push origin "${{ steps.rpa.outputs.tag_name }}"
-
-        echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
-        gh api "repos/${{ github.repository }}/git/refs/tags/v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" --method DELETE 2>/dev/null || true
-        git tag "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
-        git push origin "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}"
-
-        echo "::debug::pushing tag v${{ steps.rpa.outputs.major }}"
-        gh api "repos/${{ github.repository }}/git/refs/tags/v${{ steps.rpa.outputs.major }}" --method DELETE 2>/dev/null || true
-        git tag "v${{ steps.rpa.outputs.major }}"
-        git push origin "v${{ steps.rpa.outputs.major }}"
-
-        echo "::debug::pushing tag latest"
-        gh api repos/${{ github.repository }}/git/refs/tags/latest --method DELETE 2>/dev/null || true
-        git tag latest
-        git push origin latest
-
-
-        echo "::debug::reading gh release body ${{ steps.rpa.outputs.tag_name }}"
         gh release view "${{ steps.rpa.outputs.tag_name }}" \
           --json body \
           --jq '.body' \
           > release-msg.txt
 
-        echo "::debug::adding base-commit to release body file"
         echo -e -n "\n\n<!-- base-commit: ${COMMIT_MAIN} -->" >> release-msg.txt
 
-        echo "::debug::updating gh release ${{ steps.rpa.outputs.tag_name }}"
         gh release edit "${{ steps.rpa.outputs.tag_name }}" \
-          --draft=false \
           --latest \
           --notes-file release-msg.txt
+
+    - name: verify release tag contains dist/
+      if: ${{ steps.rpa.outputs.release_created }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ secrets.PAT }}
+      run: |
+        COMMIT_SHA=$(gh api \
+          "repos/${{ github.repository }}/git/refs/tags/${{ steps.rpa.outputs.tag_name }}" \
+          --jq '.object.sha')
+        DIST_PRESENT=$(gh api \
+          "repos/${{ github.repository }}/git/trees/${COMMIT_SHA}" \
+          --jq '[.tree[] | select(.path == "dist")] | length')
+        if [ "$DIST_PRESENT" -eq 0 ]; then
+          echo "::error::Tag ${{ steps.rpa.outputs.tag_name }} is missing dist/ — was dist/ committed to main?"
+          exit 1
+        fi
+        echo "::notice::Tag ${{ steps.rpa.outputs.tag_name }} contains dist/ ✓"
 
   readme-update-pr:
     name: Readme update PR
