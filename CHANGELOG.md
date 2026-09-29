@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.5...v1.3.0) (2026-09-29)
+
+
+### Features
+
+* commit dist/ to repo and simplify release workflow ([#760](https://github.com/taskmedia/action-conventional-commits/issues/760)) ([5cbc519](https://github.com/taskmedia/action-conventional-commits/commit/5cbc5191c9cdddef095782704564f887494ee9e4))
+
 ## [1.2.5](https://github.com/taskmedia/action-conventional-commits/compare/v1.2.4...v1.2.5) (2026-09-29)
 
 
