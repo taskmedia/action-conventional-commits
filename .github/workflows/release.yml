@@ -148,6 +148,34 @@ jobs:
           --latest \
           --notes-file release-msg.txt
 
+    - name: verify release tags point to orphan commit
+      if: ${{ steps.rpa.outputs.release_created }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ secrets.PAT }}
+      run: |
+        ORPHAN_SHA=$(git rev-parse HEAD)
+        echo "Expected orphan commit: ${ORPHAN_SHA}"
+        FAILED=0
+
+        for TAG in \
+          "${{ steps.rpa.outputs.tag_name }}" \
+          "v${{ steps.rpa.outputs.major }}.${{ steps.rpa.outputs.minor }}" \
+          "v${{ steps.rpa.outputs.major }}" \
+          "latest"; do
+          ACTUAL=$(gh api "repos/${{ github.repository }}/git/refs/tags/${TAG}" --jq '.object.sha' 2>/dev/null || echo "NOT_FOUND")
+          if [ "$ACTUAL" = "$ORPHAN_SHA" ]; then
+            echo "::notice::Tag ${TAG} → ${ACTUAL} ✓"
+          else
+            echo "::error::Tag ${TAG} points to ${ACTUAL} but expected ${ORPHAN_SHA}"
+            FAILED=1
+          fi
+        done
+
+        if [ "$FAILED" -eq 1 ]; then
+          exit 1
+        fi
+
   readme-update-pr:
     name: Readme update PR
     needs: release
