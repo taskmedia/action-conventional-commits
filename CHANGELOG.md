@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.2](https://github.com/taskmedia/action-conventional-commits/compare/v1.3.1...v1.3.2) (2026-10-03)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([#766](https://github.com/taskmedia/action-conventional-commits/issues/766)) ([53db306](https://github.com/taskmedia/action-conventional-commits/commit/53db306d06f18524cd05c58bfb51afd5027505c9))
+* **deps-dev:** bump @typescript-eslint/parser from 8.70.1 to 8.71.0 ([#763](https://github.com/taskmedia/action-conventional-commits/issues/763)) ([7e9d1ac](https://github.com/taskmedia/action-conventional-commits/commit/7e9d1ac58961604139bb583f23f48712c5dbd9b1))
+* **deps-dev:** bump brace-expansion from 1.1.18 to 1.1.21 ([#774](https://github.com/taskmedia/action-conventional-commits/issues/774)) ([9db2aa8](https://github.com/taskmedia/action-conventional-commits/commit/9db2aa854e580969e5a4800fc555f4724065dfc5))
+* **deps-dev:** bump browserslist from 4.26.3 to 4.29.3 ([#770](https://github.com/taskmedia/action-conventional-commits/issues/770)) ([28e82fe](https://github.com/taskmedia/action-conventional-commits/commit/28e82fed9bd1b8e6f5983111ccbcd1c79c3eebe7))
+* **deps-dev:** bump eslint from 10.10.0 to 10.11.0 ([#764](https://github.com/taskmedia/action-conventional-commits/issues/764)) ([4694529](https://github.com/taskmedia/action-conventional-commits/commit/46945294fd46480faf3f33666433d564b8b0a24d))
+* **deps-dev:** bump ts-jest from 29.4.12 to 29.4.14 ([#765](https://github.com/taskmedia/action-conventional-commits/issues/765)) ([d8a44c3](https://github.com/taskmedia/action-conventional-commits/commit/d8a44c3a5a7f86f29e00990f04ae4bc594023da6))
+* **deps:** bump brace-expansion ([#772](https://github.com/taskmedia/action-conventional-commits/issues/772)) ([f1ff11c](https://github.com/taskmedia/action-conventional-commits/commit/f1ff11c185fce405a992bad4b43e63b10b61af8d))
+* **deps:** bump mikefarah/yq from 4.53.6 to 4.54.1 ([#768](https://github.com/taskmedia/action-conventional-commits/issues/768)) ([2ff7b25](https://github.com/taskmedia/action-conventional-commits/commit/2ff7b2525d831ea6dc8210c209bf57d9de56aaf1))
+* **deps:** bump prettier from 3.9.6 to 3.9.9 ([#767](https://github.com/taskmedia/action-conventional-commits/issues/767)) ([bc35d0d](https://github.com/taskmedia/action-conventional-commits/commit/bc35d0dfe088aebc5ae771005c50d737e9228a3f))
+* update package-lock and rebuild dist ([#775](https://github.com/taskmedia/action-conventional-commits/issues/775)) ([d2bbf80](https://github.com/taskmedia/action-conventional-commits/commit/d2bbf80daa2321102ce03b6f8cc10fc9787bd4a3))
+
 ## [1.3.1](https://github.com/taskmedia/action-conventional-commits/compare/v1.3.0...v1.3.1) (2026-09-29)
 
 
