@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/taskmedia/action-conventional-commits/compare/v1.3.2...v1.3.3) (2026-10-07)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump eslint from 10.11.0 to 10.12.0 ([#778](https://github.com/taskmedia/action-conventional-commits/issues/778)) ([271d38f](https://github.com/taskmedia/action-conventional-commits/commit/271d38f71f1c3fa03b88391db6a60e23d1a518e6))
+
 ## [1.3.2](https://github.com/taskmedia/action-conventional-commits/compare/v1.3.1...v1.3.2) (2026-10-03)
 
 
